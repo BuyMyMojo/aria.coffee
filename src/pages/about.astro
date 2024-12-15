@@ -1,0 +1,96 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Favicon from '../components/Favicon.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/aria.css';
+
+const pageTitle = "About Aria";
+
+const identity = {
+    firstName: "Aria",
+    country: "Australia",
+    occupation: "Phone & Computer Repair Tech",
+    hobbies: ["gaming", "software/game development", "3D printing"],
+};
+
+const skills = ["Rust", "GDScript", "FFMPEG"];
+
+const currentSystem = {
+    operatingSystem: "EndeavourOS",
+    host: "X570 Phantom Gaming 4",
+    shell: "zsh",
+    mainDisplay: "Gigabyte M27U",
+    mainDisplayRtings: "https://www.rtings.com/monitor/reviews/gigabyte/m27u",
+    cpu: "AMD Ryzen 9 5900X",
+    gpu: "AMD Radeon RX 7800 XT",
+    ram: "48GB",
+    localIP: "Local IP (enp4s0): 192.168.20.2/24",
+};
+
+const skillColor = "green";
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <Favicon />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+        <style define:vars={{skillColor}}>
+            h1 {
+                color: purple;
+                font-size: 4rem;
+            }
+            .skill {
+                color: var(--skillColor);
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <Navigation />
+
+        <h1>{pageTitle}</h1>
+
+        <p>It's about time I actually write up my own website right?</p>
+
+        <p>Here are a few facts about me:</p>
+        <ul>
+            <li>My name is {identity.firstName}.</li>
+            <li>
+                I live in {identity.country} and I work as a {
+                    identity.occupation
+                }.
+            </li>
+            {
+                identity.hobbies.length >= 2 && (
+                    <li>
+                        Two of my hobbies are: {identity.hobbies[0]} and{" "}
+                        {identity.hobbies[1]}
+                    </li>
+                )
+            }
+        </ul>
+        <p>Some of my skills are:</p>
+        <ul>
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
+
+        <p>My system:</p>
+        <ul>
+            <li>OS: {currentSystem.operatingSystem}</li>
+            <li>Host: {currentSystem.host}</li>
+            <li>Shell: {currentSystem.shell}</li>
+            <li>
+                Main Display: <a href={currentSystem.mainDisplayRtings}
+                    >{currentSystem.mainDisplay}</a>
+            </li>
+            <li>CPU: {currentSystem.cpu}</li>
+            <li>GPU: {currentSystem.gpu}</li>
+            <li>RAM: {currentSystem.ram}</li>
+            <li>{currentSystem.localIP}</li>
+        </ul>
+        <Footer />
+    </body>
+</html>

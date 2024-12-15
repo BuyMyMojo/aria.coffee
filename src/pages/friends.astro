@@ -1,0 +1,33 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Favicon from '../components/Favicon.astro';
+import Footer from '../components/Footer.astro';
+import FriendLink from '../components/FriendLink.astro';
+import '../styles/aria.css';
+
+const pageTitle = "Aria's friends";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<Favicon />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} >
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+	<Navigation />
+
+    <h1>{pageTitle}</h1>
+
+    <FriendLink name="Alyxia" image="https://alyxia.dev/static/img/88x31/self.png" target="https://alyxia.dev" />
+    <div class="linked-buttons">
+    <FriendLink name="Prefetcher" image="https://nanoshinono.me/prefetcher.gif" target="https://nanoshinono.me/" />
+    <FriendLink name="Ata" image="https://ata.moe/88x31.png" target="https://ata.moe" />
+    </div>
+    <FriendLink name="Amemoia" image="https://buh.moe/resources/buttons/88x31.gif" target="https://buh.moe" />
+
+	<Footer />
+  </body>
+</html>

@@ -1,0 +1,18 @@
+---
+const buttonFormat = "gif";
+
+import Social from './Social.astro';
+---
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
+
+<footer>
+  <img class="badge" src={`/static/img/buttons/aria.${buttonFormat}`} decoding="async" />
+  <Social />
+</footer>

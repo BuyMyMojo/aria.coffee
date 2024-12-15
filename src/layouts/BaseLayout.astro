@@ -1,0 +1,25 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Favicon from '../components/Favicon.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/aria.css';
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+	<Favicon />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} >
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+	<Navigation />
+
+    <h1>{pageTitle}</h1>
+    <slot />
+	<Footer />
+  </body>
+</html>

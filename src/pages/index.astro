@@ -1,15 +1,8 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "Aria";
 ---
-
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Aria</h1>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>You're all super cute!~</h2>
+  <h3>:3c</h3>
+</BaseLayout>
