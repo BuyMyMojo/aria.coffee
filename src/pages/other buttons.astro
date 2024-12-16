@@ -1,0 +1,57 @@
+---
+import FriendLink from "../components/FriendLink.astro";
+import "../styles/aria.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Partition from "../components/Partition.astro";
+
+const pageTitle = "Aria's friends";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <Partition>
+        <h1 class="text-2xl">Here are some more 88x31 buttons:</h1>
+        <br />
+        <div class="flex outline-dotted p-2 flex-wrap">
+            <FriendLink
+                name="Low Tier God"
+                image="/static/img/88x31/lowtiergod.png"
+                target="/static/img/88x31/lowtiergod.png"
+            />
+            <FriendLink
+                name="Krill Yourself 1"
+                image="/static/img/88x31/lowtiergura-1.png"
+                target="/static/img/88x31/lowtiergura-1.png"
+            />
+            <FriendLink
+                name="Krill Yourself 2"
+                image="/static/img/88x31/lowtiergura-2.png"
+                target="/static/img/88x31/lowtiergura-2.pn"
+            />
+            <FriendLink
+                name="Gura"
+                image="/static/img/88x31/Gura.png"
+                target="/static/img/88x31/Gura.png"
+            />
+            <FriendLink
+                name="Vencord"
+                image="/static/img/88x31/vencord.gif"
+                target="https://vencord.dev/"
+            />
+            <FriendLink
+                name="BlueSky"
+                image="/static/img/88x31/bluesky.gif"
+                target="https://bsky.app/"
+            />
+            <FriendLink
+                name="FFXIV"
+                image="/static/img/88x31/ffxiv.gif"
+                target="https://na.finalfantasyxiv.com/"
+            />
+            <FriendLink
+                name="Astro"
+                image="/static/img/88x31/astro.png"
+                target="https://astro.build/"
+            />
+        </div>
+    </Partition>
+</BaseLayout>
