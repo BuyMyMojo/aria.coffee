@@ -1,12 +1,68 @@
-<a href="https://bsky.app/profile/did:plc:bzrn33tcfgjxnsanvg6py3xn">Bluesky</a>
-<a href="https://buymymojo.net/twitter/">Twitter(Archive)</a>
+---
+const twitterArchive = "https://buymymojo.net/twitter/";
+const discord = "https://discord.com/users/383507911160233985";
+const github = "https://github.com/BuyMyMojo";
+const steam = "https://steamcommunity.com/profiles/76561198227003516";
+const bsky = "https://bsky.app/profile/did:plc:bzrn33tcfgjxnsanvg6py3xn";
+const bskyArchive = "https://buymymojo.net/bsky/";
+---
 
-<style>
-    a {
-      padding: 0.5rem 1rem;
-      color: white;
-      background-color: #4c1d95;
-      text-decoration: none;
-      border-radius: 8px;
+<h1>Places to find and/or contact me:</h1>
+<ul class="list-disc p-4">
+    <li>
+        <a href={bsky} class="p-1" target="_blank"
+            ><i class="fa-brands fa-bluesky"></i> Bluesky</a
+        > - <button id="bskypid"
+            >@femgo.buymymojo.net (Click to copy DID)</button
+        >
+    </li>
+    <li>
+        <a href={discord} target="_blank"
+            ><i class="fa-brands fa-discord"></i> Discord</a
+        > - @buymymojo
+    </li>
+    <li>
+      <a href={github} target="_blank"
+          ><i class="fa-brands fa-github"></i> GitHub</a
+      > - @BuyMyMojo
+  </li>
+  <li>
+    <a href={steam} target="_blank"
+        ><i class="fa-brands fa-steam"></i> Steam</a
+    > - @BuyMyMojo
+</li>
+</ul>
+<br />
+<h2>Archives:</h2>
+<ul class="list-disc p-4">
+    <li>
+        <a href={bskyArchive} class="p-1" target="_blank"
+            ><i class="fa-brands fa-bluesky"></i> Bluesky(Archive)</a
+        >
+    </li>
+    <li>
+        <a href={twitterArchive} class="p-1" target="_blank"
+            ><i class="fa-brands fa-twitter"></i> Twitter(Archive)</a
+        >
+    </li>
+</ul>
+
+<style is:global>
+    /* Declare a custom CSS class to make the icon look right */
+    .svg-inline--fa {
+        overflow: visible;
+        box-sizing: content-box;
+        display: inline-block;
+        height: 1em;
+        vertical-align: -0.125em;
     }
-  </style>
+</style>
+<script>
+    const bskypid = document.querySelector("#bskypid");
+
+    if (bskypid != null) {
+        bskypid.addEventListener("click", () => {
+            navigator.clipboard.writeText("did:plc:bzrn33tcfgjxnsanvg6py3xn");
+        });
+    }
+</script>

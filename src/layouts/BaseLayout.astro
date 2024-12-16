@@ -1,25 +1,34 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import Favicon from '../components/Favicon.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/aria.css';
+import NavHeader from "../components/NavHeader.astro"
+import Favicon from "../components/Favicon.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/aria.css";
+import EmbedCode from "../components/EmbedCode.astro";
 
 const { pageTitle } = Astro.props;
 ---
 
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-	<Favicon />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-	<Navigation />
+    <head>
+        <Favicon />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{pageTitle}</title>
+        <EmbedCode pageTitle={pageTitle} />
 
-    <h1>{pageTitle}</h1>
-    <slot />
-	<Footer />
-  </body>
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="amemoia's blog"
+            href={new URL("rss.xml", Astro.site)}
+        />
+
+        <script is:inline defer src="https://kit.fontawesome.com/5fee770033.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+      <NavHeader />
+      <slot />
+      <Footer />
+    </body>
 </html>

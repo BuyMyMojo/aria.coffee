@@ -1,33 +1,79 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import Favicon from '../components/Favicon.astro';
-import Footer from '../components/Footer.astro';
-import FriendLink from '../components/FriendLink.astro';
-import '../styles/aria.css';
+import FriendLink from "../components/FriendLink.astro";
+import "../styles/aria.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Partition from "../components/Partition.astro";
 
 const pageTitle = "Aria's friends";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-	<Favicon />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-	<Navigation />
-
-    <h1>{pageTitle}</h1>
-
-    <FriendLink name="Alyxia" image="https://alyxia.dev/static/img/88x31/self.png" target="https://alyxia.dev" />
-    <div class="linked-buttons">
-    <FriendLink name="Prefetcher" image="https://nanoshinono.me/prefetcher.gif" target="https://nanoshinono.me/" />
-    <FriendLink name="Ata" image="https://ata.moe/88x31.png" target="https://ata.moe" />
-    </div>
-    <FriendLink name="Amemoia" image="https://buh.moe/resources/buttons/88x31.gif" target="https://buh.moe" />
-
-	<Footer />
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+    <Partition>
+        <h1 class="text-2xl">These are cool people!!</h1>
+        <br />
+        <div class="flex outline-dotted p-2 flex-wrap">
+            <FriendLink
+                name="Alyxia"
+                image="https://alyxia.dev/static/img/88x31/self.png"
+                target="https://alyxia.dev"
+            />
+            <div class="outline-dashed flex outline-3 mx-1">
+                <FriendLink
+                    name="Prefetcher"
+                    image="https://nanoshinono.me/prefetcher.gif"
+                    target="https://nanoshinono.me/"
+                />
+                <FriendLink
+                    name="Ata"
+                    image="https://ata.moe/88x31.png"
+                    target="https://ata.moe"
+                />
+            </div>
+            <FriendLink
+                name="Amemoia"
+                image="https://buh.moe/resources/buttons/88x31.gif"
+                target="https://buh.moe/"
+            />
+            <FriendLink
+                name="Hayden"
+                image="https://hayden.moe/88x31/hayden.png"
+                target="https://hayden.moe/"
+            />
+            <FriendLink
+                name="Onzecki"
+                image="https://onz.ee/assets/88x31s/png/onzecki.png"
+                target="https://onz.ee/"
+            />
+            <FriendLink
+                name="NotNite"
+                image="https://notnite.com/buttons/notnite.png"
+                target="https://notnite.com/"
+            />
+            <FriendLink
+                name="0x5066"
+                image="https://erisdump.neocities.org/buttons/88x31_1.gif"
+                target="https://erisdump.neocities.org"
+            />
+        </div>
+    </Partition>
+    <Partition>
+        <h2>My badge:</h2>
+        <div class="flex w-fit h-fit" style="background-color: #FFFCBC;">
+            <FriendLink
+                name="Aria"
+                image="https://aria.coffee/static/img/buttons/aria.gif"
+                target="https://aria.coffee"
+            />
+        </div>
+        <br />
+        <p>Code:</p>
+        <pre><code class="rounded backdrop-brightness-0 language-html" style="background-color: white;">&lt;img src="https://aria.coffee/static/img/buttons/aria.gif" alt="Aria" style="image-rendering: pixelated;" /&gt;</code></pre>
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"
+            rel="stylesheet"
+        />
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"
+        ></script>
+    </Partition>
+</BaseLayout>

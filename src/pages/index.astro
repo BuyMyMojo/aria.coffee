@@ -1,8 +1,32 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import Partition from "../components/Partition.astro";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Greeting from "../components/Greeting";
+import Social from "../components/Social.astro";
 const pageTitle = "Aria";
 ---
+
 <BaseLayout pageTitle={pageTitle}>
-  <h2>You're all super cute!~</h2>
-  <h3>:3c</h3>
+    <Partition>
+        <main>
+            <h1 class="text-4xl">Welcome!~</h1>
+            <p>
+                I'm Aria, a 22 year old software developer and electronics
+                repair tech out of rural <span style="color: #D4F7CF;"
+                    >Australia <span
+                        class="backdrop-brightness-200 px-1 text-2xl rounded"
+                        >🇦🇺</span
+                    ></span
+                >
+            </p>
+        </main>
+    </Partition>
+    <Partition>
+        <Greeting client:load messages={["Yo", "Hallo", "Ayo", "Hiya", "You're cute"]} />
+    </Partition>
+    <Partition>
+        <h1>Socials:</h1>
+        <Social />
+    </Partition>
 </BaseLayout>

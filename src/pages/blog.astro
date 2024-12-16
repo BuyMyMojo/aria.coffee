@@ -1,28 +1,27 @@
 ---
-import Navigation from '../components/Navigation.astro';
-import Favicon from '../components/Favicon.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/aria.css';
+import { getCollection } from "astro:content";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogEntry from "../components/BlogEntry.astro";
+import Partition from "../components/Partition.astro";
+const allPosts = await getCollection("blog");
 
 const pageTitle = "Aria's blog";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-	<Favicon />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-	<Navigation />
-	
-    <h1>{pageTitle}</h1>
-
+<BaseLayout pageTitle={pageTitle}>
+    <Partition>
+        <h1 class="text-2xl">All blog posts:</h1>
     <ul>
-      <li><a href="/posts/post-1/">Post 1</a></li>
+        {
+            allPosts.map((post: any) => (
+                <BlogEntry
+                    url={`/posts/${post.id}/`}
+                    title={post.data.title}
+                    date={post.data.pubDate.toLocaleDateString()}
+                />
+            ))
+        }
     </ul>
-    <Footer />
-  </body>
-</html>
+</Partition>
+</BaseLayout>

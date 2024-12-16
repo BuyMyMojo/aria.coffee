@@ -1,24 +1,92 @@
+@font-face {
+  font-family: "Noto Sans";
+  src:
+    local("Noto Sans"),
+    url("/static/fonts/NotoSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Comic Shanns";
+  src:
+    local("Comic Shanns Regular"),
+    url("/static/fonts/comic shanns.otf") format("opentype"),
+    url("/static/fonts/comic shanns 2.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Comic Mono";
+  src:
+    local("Comic Mono"),
+    url("/static/fonts/ComicMono.ttf") format("ttf"),
+    url("https://dtinth.github.io/comic-mono-font/ComicMono.ttf") format("truetype")
+}
+
+:root {
+  --first-colour: #16111a;
+  --second-colour: #21042c;
+  --third-colour: #2E236C;
+  --fourth-colour: #F5EFFF;
+
+  --border: #27272a;
+}
+
 html {
-    background-color: #bbbec2;
-    font-family: sans-serif;
+    background-color: var(--first-colour);
+    font-family: "Comic Mono", "Comic Shanns", "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", "Noto Sans", sans-serif;
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 body {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
-    line-height: 1.5;
+    /* margin: 0 auto; */
+    /* width: 100%; */
+    /* max-width: 40em; */
+    padding: 2em;
+    /* padding: 1rem; */
+    /* line-height: 1.5; */
+    color: var(--fourth-colour);
 }
 
-* {
-    box-sizing: border-box;
+@media screen and (max-width: 899px) {
+  body {
+      width: 95%;
+      padding-top: 0.5em;
+      padding-left: 0;
+      padding-right: 0;
+      flex-wrap: wrap;
+  }
 }
 
-h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
+
+a {
+  color: var(--fourth-colour);
+  text-decoration: underline 2px;
+  text-underline-offset: 2px;
+  text-decoration-color: #00000000;
 }
+
+
+a:hover {
+  text-decoration-color: #fff;
+  transition: text-decoration-color 0.25s;
+}
+
+/* h1 { */
+    /* margin: 1rem 0; */
+    /* font-size: 2.5rem; */
+/* } */
+
+/* footer { */
+  /* display: flex; */
+  /* gap: 1rem; */
+  /* margin-top: 2rem; */
+  /* background-color: var(--third-colour); */
+  /* border-radius: 4px; */
+  /* padding: 0.5rem; */
+/* } */
 
 .badge {
     image-rendering: pixelated;
@@ -29,51 +97,28 @@ h1 {
 
 .linked-buttons {
     outline-style: dashed;
-    display:inline-block
+    width:fit-content;
+    display: inline-flex;
 }
 
-/* nav styles */
+.container {
+  background-color: var(--second-colour);
+  border-radius: 8px;
+  padding: 16px;
+  display:flex;
+  flex-direction: column;
+  /* flex: content; */
+}
 
-.nav-links {
-    width: 100%;
-    top: 5rem;
-    left: 48px;
-    background-color: #ff9776;
-    display: none;
-    margin: 0;
-  }
-  
-  .nav-links a {
-    display: block;
-    text-align: center;
-    padding: 10px 0;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  .nav-links a:hover,
-  .nav-links a:focus {
-    background-color: #ff9776;
-  }
-  
-  .expanded {
-    display: unset;
-  }
-  
-  @media screen and (min-width: 636px) {
-    .nav-links {
-      margin-left: 5em;
-      display: block;
-      position: static;
-      width: auto;
-      background: none;
-    }
-  
-    .nav-links a {
-      display: inline-block;
-      padding: 15px 20px;
-    }
-  
-  }
+.greetButton {
+  color: var(--fourth-colour);
+  background-color: var(--second-colour);
+  border-color: var(--second-colour);
+  transition-duration: 0.4s;
+}
+
+.greetButton:hover {
+  color: var(--third-colour);
+  background-color: var(--fourth-colour);
+  border-color: var(--fourth-colour);
+}

@@ -1,0 +1,71 @@
+---
+import Partition from "../components/Partition.astro";
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+    <Partition>
+        <p>
+            <h1 class="text-xl font-bold underline">{frontmatter.title}</h1>
+            <em>{frontmatter.description}</em><br />
+            <sub>Date: {frontmatter.pubDate.toLocaleDateString()}</sub>
+        </p>
+    </Partition>
+    <Partition>
+        <main>
+            <div
+                class="prose dark:prose-invert
+  prose-h1:font-bold prose-h1:text-xl
+  prose-a:text-[#ff98f6] prose-p:text-justify prose-img:rounded-xl
+  prose-headings:underline"
+            >
+                <slot />
+            </div>
+        </main>
+    </Partition>
+
+    <Partition>
+        <h3>tags:</h3>
+        <div class="tags">
+            {
+                frontmatter.tags.map((tag: string) => (
+                    <a href={`/tags/${tag}`}>
+                        <p class="tag">{tag}</p>
+                    </a>
+                ))
+            }
+        </div>
+    </Partition>
+
+    <footer>
+        <sub>Written by: {frontmatter.author}</sub>
+    </footer>
+</BaseLayout>
+<style>
+    a {
+        color: #b800a8;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .tag {
+        margin: 0.25em;
+        border: dotted 1px #a1a1a1;
+        border-radius: 0.5em;
+        padding: 0.5em 1em;
+        font-size: 1.15em;
+        background-color: #f8fcfd;
+    }
+
+    .tag:hover {
+        background-color: #f8fcfd83;
+    }
+
+    .tag:active {
+        background-color: #d4f6ff;
+    }
+</style>
