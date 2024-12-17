@@ -1,4 +1,12 @@
 ---
 const { name, image, target } = Astro.props;
 ---
-<a href={`${target}`} target="_blank"><img class="badge" src={`${image}`} alt={`${name}`} decoding="async" /></a>
+<a href={`${target}`} target="_blank"><img src={`${image}`} alt={`${name}`} decoding="async" /></a>
+<style>
+    img {
+        image-rendering: pixelated;
+        width: 88px;
+        height: 31px;
+        padding: 4px;
+    }
+</style>
