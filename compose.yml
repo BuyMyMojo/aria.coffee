@@ -1,0 +1,7 @@
+services:
+  aria-coffee:
+    container_name: site
+    build: .
+    restart: unless-stopped
+    ports:
+     - 4321:4321
