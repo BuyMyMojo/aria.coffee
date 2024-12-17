@@ -9,24 +9,36 @@ library.add(faCodeBranch, faRss);
 const sourceCodeIcon = icon({ prefix: "fas", iconName: faCodeBranch.iconName });
 const rssIcon = icon({ prefix: "fas", iconName: faRss.iconName });
 ---
+
 <hr class="h-1" style="" />
 <footer class="flexcol">
-  <div class="flexrow">
-    <p>
-      <a href="https://github.com/BuyMyMojo/aria.coffee" target="_blank"
-      ><Fragment set:html={sourceCodeIcon.html} /> Source Code</a> | <a href="https://aria.coffee/rss.xml" target="_blank"
-      ><Fragment set:html={rssIcon.html} /> RSS Feed</a>
-    </p>
-  </div>
-  <img class="badge" src={`/static/img/buttons/aria.${buttonFormat}`} decoding="async" alt="88x31 pixel button with the text 'Aria' and the top half of a human human face on the right hand side" />
+    <div class="flexrow">
+        <p>
+            <a href="https://github.com/BuyMyMojo/aria.coffee" target="_blank"
+                ><Fragment set:html={sourceCodeIcon.html} /> Source Code</a
+            > | <a href="https://aria.coffee/rss.xml" target="_blank"
+                ><Fragment set:html={rssIcon.html} /> RSS Feed</a
+            >
+        </p>
+    </div>
+    <div class="flex">
+        <img
+            class="badge size-fit"
+            src={`/static/img/buttons/aria.${buttonFormat}`}
+            decoding="async"
+            alt="88x31 pixel button with the text 'Aria' and the top half of a human human face on the right hand side"
+        />
+        <script is:inline defer src="https://transring.neocities.org/ring.js"
+        ></script>
+    </div>
 </footer>
 <style is:global>
-  /* Declare a custom CSS class to make the icon look right */
-  .svg-inline--fa {
-      overflow: visible;
-      box-sizing: content-box;
-      display: inline-block;
-      height: 1em;
-      vertical-align: -0.125em;
-  }
+    /* Declare a custom CSS class to make the icon look right */
+    .svg-inline--fa {
+        overflow: visible;
+        box-sizing: content-box;
+        display: inline-block;
+        height: 1em;
+        vertical-align: -0.125em;
+    }
 </style>
