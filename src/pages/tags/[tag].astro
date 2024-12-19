@@ -6,21 +6,21 @@ import BlogEntry from "../../components/BlogEntry.astro";
 import Partition from "../../components/Partition.astro";
 
 export async function getStaticPaths() {
-    const allPosts = await getCollection("blog");
+	const allPosts = await getCollection("blog");
 
-    const uniqueTags = [
-        ...new Set(allPosts.map((post: any) => post.data.tags).flat()),
-    ];
+	const uniqueTags = [
+		...new Set(allPosts.map((post: any) => post.data.tags).flat()),
+	];
 
-    return uniqueTags.map((tag) => {
-        const filteredPosts = allPosts.filter((post: any) =>
-            post.data.tags.includes(tag)
-        );
-        return {
-            params: { tag },
-            props: { posts: filteredPosts },
-        };
-    });
+	return uniqueTags.map((tag) => {
+		const filteredPosts = allPosts.filter((post: any) =>
+			post.data.tags.includes(tag),
+		);
+		return {
+			params: { tag },
+			props: { posts: filteredPosts },
+		};
+	});
 }
 
 const { tag } = Astro.params;
