@@ -9,6 +9,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+  output: import.meta.env.DOCKER ? 'server' : 'static',
   site: "https://aria.coffee",
   integrations: [preact(), tailwind(), icon()],
   image: {
