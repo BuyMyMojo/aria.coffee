@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "FriendLink.astro",
         "astro.config.mjs",
-        ".vscode"
+        ".vscode",
+        "NavHeader.astro"
     ]
 }
