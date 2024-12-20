@@ -4,6 +4,7 @@
         "astro.config.mjs",
         ".vscode",
         "NavHeader.astro",
-        "friends.astro"
+        "friends.astro",
+        "aria.css"
     ]
 }

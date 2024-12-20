@@ -1,8 +1,9 @@
-@font-face {
+/* @font-face {
 	font-family: "Noto Sans";
-	src: local("Noto Sans"), url("/static/fonts/NotoSans-Regular.ttf")
+	src: local("Noto Sans"), url("/static/fonts/NotoSansDisplay-Regular.ttf")
+		format("truetype"), url("/static/fonts/NotoSans-Regular.ttf")
 		format("truetype");
-}
+} */
 
 @font-face {
 	font-family: "Comic Shanns";
