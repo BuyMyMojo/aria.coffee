@@ -7,7 +7,7 @@
 
 @font-face {
 	font-family: "Comic Shanns";
-	src: local("Comic Shanns Regular")
+	src: local("Comic Shanns Regular");
 	/* ,url("/static/fonts/comic shanns.otf")
 		format("opentype"), url("/static/fonts/comic shanns 2.ttf")
 		format("truetype"); */

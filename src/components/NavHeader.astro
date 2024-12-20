@@ -3,10 +3,20 @@ import { Picture, getImage } from "astro:assets";
 import pfp from "../img/sites/avatar.png";
 import Partition from "./Partition.astro";
 
-import myBackground from "../img/sites/avatar-ht-f.png"
+import myBackground from "../img/sites/avatar-ht-f.png";
 
-const optimizedBackground = await getImage({src: myBackground, format: 'avif', quality: 50, width: 680})
-const optimizedBackgroundLQ = await getImage({src: myBackground, format: 'jpeg', quality: 60, width: 680})
+const optimizedBackground = await getImage({
+	src: myBackground,
+	format: "avif",
+	quality: 50,
+	width: 680,
+});
+const optimizedBackgroundLQ = await getImage({
+	src: myBackground,
+	format: "jpeg",
+	quality: 60,
+	width: 680,
+});
 ---
 <style is:inline>
     image-set(
