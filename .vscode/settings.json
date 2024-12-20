@@ -1,0 +1,7 @@
+{
+    "conventionalCommits.scopes": [
+        "FriendLink.astro",
+        "astro.config.mjs",
+        ".vscode"
+    ]
+}
