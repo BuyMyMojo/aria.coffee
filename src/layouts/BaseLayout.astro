@@ -17,6 +17,9 @@ const { pageTitle } = Astro.props;
         <title>{pageTitle}</title>
         <EmbedCode pageTitle={pageTitle} />
 
+        <link rel="preconnect" href="https://transring.neocities.org" />
+        <link rel="dns-prefetch" href="https://transring.neocities.org" />
+
         <link
             rel="alternate"
             type="application/rss+xml"
