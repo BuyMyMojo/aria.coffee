@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
+
 const { name, image, target } = Astro.props;
 ---
-<a href={`${target}`} target="_blank"><img src={`${image}`} alt={`${name}`} decoding="async" /></a>
+<a href={`${target}`} target="_blank"><Image src={image} width={88} height={31} alt={`${name}`} /></a>
 <style>
     img {
         image-rendering: pixelated;
