@@ -1,13 +1,7 @@
 ---
 const buttonFormat = "gif";
 
-import { library, icon } from "@fortawesome/fontawesome-svg-core";
-import { faCodeBranch, faRss } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faCodeBranch, faRss);
-
-const sourceCodeIcon = icon({ prefix: "fas", iconName: faCodeBranch.iconName });
-const rssIcon = icon({ prefix: "fas", iconName: faRss.iconName });
+import { Icon } from 'astro-icon/components'
 ---
 
 <hr class="h-1" style="" />
@@ -15,9 +9,9 @@ const rssIcon = icon({ prefix: "fas", iconName: faRss.iconName });
     <div class="flexrow">
         <p>
             <a href="https://github.com/BuyMyMojo/aria.coffee" target="_blank"
-                ><Fragment set:html={sourceCodeIcon.html} /> Source Code</a
+                ><Icon name="mdi:source-branch" class={"svg-inline"}/> Source Code</a
             > | <a href="https://aria.coffee/rss.xml" target="_blank"
-                ><Fragment set:html={rssIcon.html} /> RSS Feed</a
+                ><Icon name="mdi:rss" class={"svg-inline"}/> RSS Feed</a
             >
         </p>
     </div>

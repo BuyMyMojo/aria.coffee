@@ -120,3 +120,11 @@ a:hover {
 	background-color: var(--fourth-colour);
 	border-color: var(--fourth-colour);
 }
+
+.svg-inline {
+	overflow: visible;
+	box-sizing: content-box;
+	display: inline-block;
+	height: 1em;
+	vertical-align: -0.125em;
+}
