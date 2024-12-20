@@ -8,5 +8,8 @@ import tailwind from "@astrojs/tailwind";
 // https://astro.build/config
 export default defineConfig({
   site: "https://aria.coffee",
-  integrations: [preact(), tailwind()]
+  integrations: [preact(), tailwind()],
+  image: {
+    domains: ["buymymojo.net", "aria.coffee", "github.com", "githubusercontent.com", "avatars.githubusercontent.com", "camo.githubusercontent.com", "user-images.githubusercontent.com", "private-user-images.githubusercontent.com"],
+  }
 });
