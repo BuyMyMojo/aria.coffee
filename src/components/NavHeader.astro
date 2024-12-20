@@ -5,7 +5,7 @@ import Partition from "./Partition.astro";
 
 import myBackground from "../img/sites/avatar-ht-f.png"
 
-const optimizedBackground = await getImage({src: myBackground, format: 'avif', quality: 40, width: 680})
+const optimizedBackground = await getImage({src: myBackground, format: 'avif', quality: 50, width: 680})
 ---
 
 <div
@@ -17,7 +17,7 @@ const optimizedBackground = await getImage({src: myBackground, format: 'avif', q
         class="size-40 rounded-full shadow shadow-black m-4"
         width={320}
         height={320}
-        quality={65}
+        quality={70}
         formats={['avif', 'webp', 'jpeg']}
         alt="Arias's profile picture"
     />
