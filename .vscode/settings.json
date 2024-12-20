@@ -3,6 +3,7 @@
         "FriendLink.astro",
         "astro.config.mjs",
         ".vscode",
-        "NavHeader.astro"
+        "NavHeader.astro",
+        "friends.astro"
     ]
 }
