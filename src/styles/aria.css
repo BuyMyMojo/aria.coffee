@@ -15,7 +15,7 @@
 
 @font-face {
 	font-family: "Comic Mono";
-	src: local("Comic Mono"), url("/static/fonts/ComicMono.ttf") format("ttf"),
+	src: local("Comic Mono"), url("/static/fonts/ComicMono.ttf") format("truetype"),
 		url("https://dtinth.github.io/comic-mono-font/ComicMono.ttf")
 		format("truetype");
 }
