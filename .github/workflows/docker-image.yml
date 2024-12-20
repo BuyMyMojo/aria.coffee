@@ -14,7 +14,7 @@ env:
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  DOCKER: true
+  DOCKER_BUILD: true
 
 jobs:
 
