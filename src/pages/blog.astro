@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 
-import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogEntry from "../components/BlogEntry.astro";
 import Partition from "../components/Partition.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const allPosts = await getCollection("blog");
 
 const pageTitle = "Aria's blog";

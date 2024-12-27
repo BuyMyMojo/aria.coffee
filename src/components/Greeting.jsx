@@ -12,6 +12,7 @@ export default function Greeting({ messages }) {
 			<button
 				class="greetButton px-2 rounded-xl"
 				onClick={() => setGreeting(randomMessage())}
+				type="submit"
 			>
 				New Greeting
 			</button>
