@@ -3,12 +3,15 @@ import { Image } from "astro:assets";
 
 const { name, image, target } = Astro.props;
 ---
-<a href={`${target}`} target="_blank"><Image src={image} width={88} height={31} alt={`${name}`} /></a>
+<a href={`${target}`} target="_blank"><Image src={image} width={88} height={31} alt={`${name}`} class="flex" /></a>
 <style>
     img {
         image-rendering: pixelated;
-        width: 88px;
-        height: 31px;
+        min-width: 88px;
+        width: 176px;
+        min-height: 31px;
+        height: 62px;
+        scale: initial;
         padding: 4px;
     }
 </style>
