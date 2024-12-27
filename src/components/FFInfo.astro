@@ -1,0 +1,16 @@
+---
+import FFInfoJSON from "../assets/json/FFXIV.json";
+
+import {Image} from "astro:assets";
+
+import Patition from "./Partition.astro";
+---
+
+<Patition>
+    <div class="flex items-start max-w-56 justify-items-center grid-cols-2">
+        <Image src={FFInfoJSON.Character.Portrait} inferSize alt="Character" class="rounded-xl shrink"/>
+        <Image src={FFInfoJSON.Character.Portrait} inferSize alt="Character" class="rounded-xl shrink"/>
+        <Image src={FFInfoJSON.Character.Portrait} inferSize alt="Character" class="rounded-xl shrink"/>
+        <Image src={FFInfoJSON.Character.Portrait} inferSize alt="Character" class="rounded-xl shrink"/>
+    </div>
+</Patition>
