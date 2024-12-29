@@ -1,0 +1,184 @@
+---
+import Partition from "../components/Partition.astro";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PortfolioProject from "../components/PortfolioProject.astro";
+
+const Project = PortfolioProject;
+
+const pageTitle = "Portfolio";
+
+const languagesUsed = [
+    "Rust",
+    "GDScript",
+    "Go",
+    "Python",
+    "JavaScript",
+    "C#"
+];
+
+// languagesUsed.sort((a, b) => a.localeCompare(b.firstname))
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <Partition>
+        <h1 class="text-4xl text-center">Portfolio</h1>
+
+        <p>This is a list of some of my projects that I've worked on over the years.</p>
+        <p>Not all of them are complete or expansive but with each project I've grown as a developer.</p>
+        <br/>
+        <p>I have worked in these languages:</p>
+        <ul class="list-disc pl-5">
+            {languagesUsed.map((language) => (
+                    <li>{language}</li>))}
+        </ul>
+    </Partition>
+    <main>
+        <!--<Project-->
+        <!--        name="Lorem ipsum"-->
+        <!--        date="29th December 2024"-->
+        <!--        tags="Lorem, ipsum"-->
+        <!--        link="https://aria.coffee"-->
+        <!--&gt;-->
+        <!--    Lorem ipsum dolor sit amet-->
+        <!--</Project>-->
+        <Project
+                name="Open-FBT"
+                date="26th July 2021"
+                tags="Rust, Discord, Bot, Redis, Docker, Python"
+                link="https://github.com/BuyMyMojo/open-fbt"
+        >
+            Open-FBT is an open sourced public variant of the <a href="https://fbtsecurity.fbtheaven.com/"
+                                                                 target="_blank" class="nav-btn backdrop-contrast-150">FBTHeaven
+            discord bot</a>, a bot I created to help moderate discord communities. This bot is in 419 servers as of the
+            29th December 2024 and has processed over 36,000 user commands since July 31 2022.
+            <br/><br/>
+            In 2021 I was approached by a friend who runs a VRChat dance club to help work on their Discord bot, this
+            was originally written in Python using <span class="backdrop-contrast-150">discord.py</span> which
+            eventually got dropped by the developer so we had to migrate to <span
+                class="backdrop-contrast-150">nextcord</span>.
+            <br/><br/>
+            After a year of building the bot, and dealing with the strange performance characteristics of nextcord, in
+            July 2022 I decided to start rewriting the bot in Rust to make use of the increased performance and
+            portability that the new language afforded. I also moved to using Redis as the database of choice instead of
+            SQLite for much faster access to our thousands of DB entries.
+            <br/><br/>
+            After a few hundred commits and a couple years of work I decided to fork my own code to strip out any
+            confidential info and release an open variant to the world as a final send off to the longest running
+            project
+            I have worked on.
+        </Project>
+        <Project
+                name="discord-chat-parser"
+                date="4th August 2021"
+                tags="Python, Golang, Discord, CLI"
+                link="https://github.com/BuyMyMojo/discord-chat-parser"
+        >
+            This was an additional tool made to be used with Open-FBT's predecessor. It takes exported csv files from <a
+                href="https://github.com/Tyrrrz/DiscordChatExporter" , target="_blank">DiscordChatExporter</a> and
+            extracts the UserIDs within. This was made to log users found within discord servers centered around VRChat
+            piracy and trolling to then bar them from entry of any server that both used Open-FBT's predecessor and
+            opted in to this functionality.
+
+            Originally written in Python this was another project I transferred to a new language, unlike the bot itself
+            I decided to write this in Go for simplicity.
+        </Project>
+        <Project
+                name="Mojo's Kitchen Chaos(Course work)"
+                date="23rd Febuary 2023"
+                tags="Unity, C#, GameDev, Course"
+                link="https://buymymojo.itch.io/mojos-kitchen-chaos"
+        >
+            <sub><a href="https://github.com/BuyMyMojo/mojo-kitchen-chaos" target="_blank">Source code</a></sub>
+            <hr>
+            In order to learn more about working in Unity I followed <a
+                href="https://www.youtube.com/watch?v=AmGSEH7QcDg" target="_blank">this</a> course from <a
+                href="https://www.youtube.com/@CodeMonkeyUnity" target="_blank">Code Monkey</a> on YouTube.
+        </Project>
+        <Project
+                name="Godot Micro Games(Course work)"
+                date="23rd Febuary 2023"
+                tags="Godot, GDScript, GameDev, Course"
+                link="https://buymymojo.itch.io/"
+        >
+            <ul class="list-disc pl-5">
+                <li>
+                    <a href="https://buymymojo.itch.io/speedy-saucer" target="_blank">Speedy Saucer(2D)</a>
+                </li>
+                <li>
+                    <a href="https://buymymojo.itch.io/alien-attack" target="_blank">Alien Attack(2D)</a>
+                </li>
+                <li>
+                    <a href="https://buymymojo.itch.io/martian-mike" target="_blank">Martian Mike(2D)</a>
+                </li>
+                <li>
+                    <a href="https://buymymojo.itch.io/project-boost" target="_blank">Project Boost(3D)</a>
+                </li>
+            </ul>
+            <hr>
+            These are some small games made while following <a href="https://www.gamedev.tv/"
+                                                               target="_blank">GameDev.tv</a>'s Godot 2D and 3D courses.
+        </Project>
+        <Project
+                name="Rust 3x+1"
+                date="5th March 2022"
+                tags="Rust, Math, CLI"
+                link="https://github.com/BuyMyMojo/rust-3xp1"
+        >
+            I found myself watching a <a href="https://youtu.be/094y1Z2wpJg" target="_blank"
+                                         class="nav-btn backdrop-contrast-150">Veritasium video</a> about the Collatz
+            Conjecture, more simply known as 3x+1, and I found myself drawn to it for a time.
+            <br/><br/>
+            I was looking for a small project to work on and figured I'd try my hand at writing my own tool to brute
+            force the Conjecture to find another looping sequence. I never found one sadly but the project was a great
+            learning exercise during my early days of Rust development.
+        </Project>
+        <Project
+                name="RedisFS"
+                date="14th July 2022"
+                tags="Rust, Redis, CLI"
+                link="https://github.com/BuyMyMojo/RedisFS"
+        >
+            I had a really silly Idea while working on the bot behind Open-FBT, what if I used a Redis database to store
+            files? well the answer if a pretty fast but inefficient RAM based file storage server.
+        </Project>
+        <Project
+                name="verify-rs"
+                date="8th January 2023"
+                tags="Rust, Hashing, CLI"
+                link="https://github.com/BuyMyMojo/verify-rs"
+        >
+            verify-rs is a simple cli tool for printing out several kinds of hashes from an input file. I just needed a
+            simple tool to do this so I decided to write my own. It supports sha1, sha256, sha512, sha3_256, sha3_512,
+            sha3_224, sha3_384, blake2s256, blake2b512 and blake3.
+        </Project>
+        <Project
+                name="Another ssimulacra2 cli(as2c)"
+                date="23rd October 2023"
+                tags="Rust, CLI"
+                link="https://github.com/BuyMyMojo/another_ssimulacra2_cli"
+        >
+            as2c was a fork of the initial release of <a href="https://github.com/rust-av/ssimulacra2_bin"
+                                                         target="_blank">ssimulacra2_bin</a> I made to add "video"
+            support.
+            <br/><br/>
+            This was accomplished by having the user export both the Source and Distorted videos as image sequences into
+            separate folders and then comparing files with matching names. Since the ssimulacra2 calculation is single
+            threaded I added the ability to run the calculations across multiple threads when working in "video mode".
+            <br/>
+            Another addition I made was allowing the user to specify the colour space and colour transfer of the images,
+            in the initial implementation of the tool it defaulted to SRGB BT709.
+        </Project>
+        <Project
+                name="AI-Gopher"
+                date="4th Febuary 2022"
+                tags="Golang, Twitter, Bot"
+                link="https://github.com/BuyMyMojo/AI-Gopher"
+        >
+            AI-Gopher is a bot that automatically posted a tweet generated by ChatGPT3. Honestly nothing great or useful
+            but it was at least a good opportunity to learn more about Go and interacting with some APIs and OAuth 1.0.
+            <br/><br/>
+            This project was technically against the Twitter TOS at the time but I didn't know that, oops!
+        </Project>
+    </main>
+</BaseLayout>

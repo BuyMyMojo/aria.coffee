@@ -1,0 +1,12 @@
+---
+import Partition from "./Partition.astro";
+
+const { name, date, tags, description, link } = Astro.props;
+---
+<Partition>
+    <h2><a class="nav-btn text-2xl" href={link} target="_blank">{name}</a></h2>
+    <p>Date: {date}</p>
+    <p><sub>{tags}</sub></p>
+    <hr/>
+    <p><slot /></p>
+</Partition>
