@@ -65,11 +65,11 @@ a {
 	color: var(--fourth-colour);
 	text-decoration: underline 2px;
 	text-underline-offset: 2px;
-	text-decoration-color: #00000000;
+	text-decoration-color: #fff;
 }
 
 a:hover {
-	text-decoration-color: #fff;
+	text-decoration-color: #F5A8B7;
 	transition: text-decoration-color 0.25s;
 }
 
