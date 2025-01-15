@@ -22,13 +22,13 @@ We where discussing domain names and this one wasn't owned! I'm addicted to coff
 
 After purchasing I needed to decide what I wanted to do with it, for a little over a day (Until not long before I started to write this) it just redirected to my [BlueSky](https://bsky.app/profile/did:plc:bzrn33tcfgjxnsanvg6py3xn) account.
 
-I eventually got inspired by both [Alyxia](https://alyxia.dev/) and [Annie's](https://buh.moe/) websites. Finally convinced to make something from scratch I made the website you're looking at now!
+I eventually got inspired by both [Alyxia](https://alyxia.dev/) and [Alex's](https://buh.moe/) websites. Finally convinced to make something from scratch I made the website you're looking at now!
 
 This has been my first time working mostly from scratch to make my personal website, more on that described bellow!
 
 ## The How
 
-This website was made using [Astro](https://astro.build/) for the build system and I decided to use [Tailwind](https://tailwindcss.com/) instead of basing my own css off Annie's after she convinced me.
+This website was made using [Astro](https://astro.build/) for the build system and I decided to use [Tailwind](https://tailwindcss.com/) instead of basing my own css off Alex's after she convinced me.
 
 ![A discord screenshot containing the following messages: Sent by @BuyMyMojo: "getting my brain around css and styling hurts, I'm man handling some of your css @amemoia", Sent by @amemoia: "DONT LOOK AT MY CSS ITS SO BAD", "EVERYTHING HAS ITS OWN CLASS", "USE A FRAMEWORK"](/static/img/blog/UseAFramework_20241217_002719.png)
 
