@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro check && ./compress-images.sh && astro build",
+    "build": "astro check && astro build && ./compress-images.sh",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -14,7 +14,7 @@
     "@astrojs/preact": "^4.0.5",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/tailwind": "^5.1.5",
-    "astro": "^5.4.1",
+    "astro": "^5.4.2",
     "astro-icon": "^1.1.5",
     "preact": "^10.26.4",
     "sharp": "^0.33.5",
@@ -24,8 +24,8 @@
   "devDependencies": {
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/meteor-icons": "^1.2.1",
-    "@iconify-json/tabler": "^1.2.16",
+    "@iconify-json/tabler": "^1.2.17",
     "@tailwindcss/typography": "^0.5.16",
-    "vite": "^6.2.0"
+    "vite": "^6.2.1"
   }
 }
