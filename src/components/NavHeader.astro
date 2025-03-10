@@ -13,9 +13,9 @@ const optimizedBackground = await getImage({
 });
 const optimizedBackgroundLQ = await getImage({
 	src: myBackground,
-	format: "jpeg",
+	format: "webp",
 	quality: 60,
-	width: 680,
+	width: 512,
 });
 ---
 <style is:inline>
@@ -31,9 +31,10 @@ const optimizedBackgroundLQ = await getImage({
     <Picture
         src={pfp}
         class="size-40 rounded-full shadow shadow-black m-4"
-        width={320}
-        height={320}
-        quality={70}
+        width={192}
+        height={192}
+        quality={65}
+        densities={[1, 1.25, 1.5, 1.75, 2, 3, 4]}
         formats={['avif', 'webp', 'jpeg']}
         alt="Arias's profile picture"
     />
