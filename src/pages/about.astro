@@ -5,7 +5,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/aria.css";
 
 const pageTitle = "About Aria";
-const description = "All about Aria";
+const description = "All about Aria, her system, her hobbies and more!";
 
 const identity = {
 	firstName: "Aria",
@@ -36,7 +36,7 @@ const skillColor = "#F5A8B7";
     <Partition>
         <p>It's about time I actually write up my own website right?</p>
         <br />
-        <p class="text-2xl">Here are a few facts about me:</p>
+        <h2 class="text-2xl">Here are a few facts about me:</h2>
         <ul class="list-disc p-4">
             <li>My name is {identity.firstName}.</li>
             <li>
@@ -55,13 +55,80 @@ const skillColor = "#F5A8B7";
         </ul>
     </Partition>
     <Partition>
-        <p class="text-2xl">Some of my skilled areas are:</p>
+        <h2 class="text-2xl">What powers me & this website?</h2>
+
+        <p>What powers my system?</p>
+        <br />
+        <p>
+            I daily drive EndeavourOS with the KDE Plasma desktop, use Firefox
+            for the internet, qBittorrent for "linux ISOs", Jellyfin for
+            streaming those "ISOs"
+        </p>
+        <div class="flex outline-dotted p-2 flex-wrap">
+            <FriendLink
+                name="EndeavourOS"
+                image="/static/img/88x31/EndeavourOS-88x31.webp"
+                target="https://endeavouros.com/"
+            />
+            <FriendLink
+                name="DKE Plasma"
+                image="/static/img/88x31/kde.gif"
+                target="https://kde.org/plasma-desktop/"
+            />
+            <FriendLink
+                name="Firefox"
+                image="/static/img/88x31/firefox.gif"
+                target="https://www.mozilla.org/en-US/firefox/new/"
+            />
+            <FriendLink
+                name="qBittorrent"
+                image="/static/img/88x31/qbittorrent.png"
+                target="https://www.qbittorrent.org/"
+            />
+            <FriendLink
+                name="Jellyfin"
+                image="/static/img/88x31/jellyfin.gif"
+                target="https://jellyfin.org/"
+            />
+        </div>
+        <br />
+        <p>This website is powered written in VSCode, hosted with Caddy, created using Astro and with zero AI involvement!</p>
+        <div class="flex outline-dotted p-2 flex-wrap">
+            <FriendLink
+                name="Visual Studio Code"
+                image="/static/img/88x31/vscbutton.gif"
+                target="https://code.visualstudio.com/"
+            />
+            <FriendLink
+                name="Caddy"
+                image="/static/img/88x31/caddy.png"
+                target="https://caddyserver.com/"
+            />
+            <FriendLink
+                name="Astro"
+                image="/static/img/88x31/astro.png"
+                target="https://astro.build/"
+            />
+            <FriendLink
+                name="Brain made"
+                image="/static/img/88x31/brainmade.avif"
+                target="https://brainmade.org/"
+            />
+            <FriendLink
+                name="Hand coded"
+                image="/static/img/88x31/handcoded.avif"
+                target="https://brushwarriors.com/no-to-ai/"
+            />
+        </div>
+    </Partition>
+    <Partition>
+        <h2 class="text-2xl">Some of my skilled areas are:</h2>
         <ul class="list-disc p-4">
             {skills.map((skill) => <li class="skill">{skill}</li>)}
         </ul>
     </Partition>
     <Partition>
-        <p class="text-2xl">My PC:</p>
+        <h2 class="text-2xl">My PC:</h2>
         <ul class="list-disc p-4">
             <li>
                 <span class="skill">Computer's Name:</span>
@@ -99,16 +166,19 @@ const skillColor = "#F5A8B7";
                     ><sub>[No link yet]</sub>
                 </p>
             </li>
-            <li><p>
+            <li>
+                <p>
                     Website inspiration: <FriendLink
                         name="Alyxia"
                         image="https://alyxia.dev/static/img/88x31/self.png"
                         target="https://alyxia.dev"
-                    /> & <div class="outline-dotted w-fit"><FriendLink
-                        name="Amemoia"
-                        image="https://buh.moe/resources/buttons/88x31.gif"
-                        target="https://buh.moe/"
-                    /><sub>[Alex]</sub></div>
+                    /> & <div class="outline-dotted w-fit">
+                        <FriendLink
+                            name="Amemoia"
+                            image="https://buh.moe/resources/buttons/88x31.gif"
+                            target="https://buh.moe/"
+                        /><sub>[Alex]</sub>
+                    </div>
                 </p>
             </li>
         </ul>
