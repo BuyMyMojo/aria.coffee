@@ -18,7 +18,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(post);
 
-const lastModified = import.meta.env.PUBLIC_COMMIT === "" ? "Unavailable" : dayjs(remarkPluginFrontmatter.lastModified)
+const lastModified = dayjs(remarkPluginFrontmatter.lastModified)
   .utc()
   .format("HH:mm:ss DD MMMM YYYY UTC");
 ---
