@@ -6,6 +6,7 @@ RUN pnpm install --shamefully-hoist
 
 
 COPY . .
+COPY .git .
 
 RUN apt-get update -y
 RUN apt-get install -y jpegoptim
