@@ -4,7 +4,8 @@ const buttonFormat = "gif";
 import { Icon } from "astro-icon/components";
 import { execSync } from "node:child_process";
 
-const commitURL = `${import.meta.env.PUBLIC_REPOURL}commit/${execSync(`git log -1 --pretty="format:%H"`)}`;
+const commitURL = import.meta.env.PUBLIC_COMMIT === "" ? "" : `${import.meta.env.PUBLIC_REPOURL}commit/${execSync(`git log -1 --pretty="format:%H"`)}`;
+const COMMIT = import.meta.env.PUBLIC_COMMIT === "" ? "Docker Build!" : `<a href=${commitURL}>${execSync(`git log -1 --pretty="format:%h"`)}</a>`;
 ---
 
 <hr class="h-1" style="" />
@@ -13,7 +14,7 @@ const commitURL = `${import.meta.env.PUBLIC_REPOURL}commit/${execSync(`git log -
         <p>
             | <a href="https://github.com/BuyMyMojo/aria.coffee" target="_blank"
                 > <Icon name="mdi:source-branch" class={"svg-inline"}/>Source Code</a
-            > - Commit:<a href={commitURL}>{execSync(`git log -1 --pretty="format:%h"`)}</a> | <a href="https://aria.coffee/rss.xml" target="_blank"
+            > - Commit:<Fragment set:html={COMMIT} /> | <a href="https://aria.coffee/rss.xml" target="_blank"
                 > <Icon name="mdi:rss" class={"svg-inline"}/>RSS Feed</a
             > |
         </p>

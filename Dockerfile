@@ -15,7 +15,7 @@ RUN wget https://github.com/shssoichiro/oxipng/releases/download/v9.1.3/oxipng_9
 RUN apt-get install -y ./oxipng_9.1.3-1_amd64.deb
 RUN rm ./oxipng_9.1.3-1_amd64.deb
 
-RUN pnpm run build
+RUN PUBLIC_COMMIT="" pnpm run build
 
 ENV HOST=0.0.0.0
 ENV PORT=4321
