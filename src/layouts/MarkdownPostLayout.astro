@@ -8,7 +8,7 @@ const { lastModified }  = Astro.props;
 <BaseLayout pageTitle={frontmatter.title} description={frontmatter.description}>
     <Partition>
         <p>
-            <h1 class="text-xl font-bold underline">{frontmatter.title}</h1>
+            <h1 class="text-3xl font-bold underline">{frontmatter.title}</h1>
             <em>{frontmatter.description}</em><br />
             <sub>Date: {frontmatter.pubDate.toLocaleDateString()}</sub><br />
             <sub>Last Modified: {lastModified}</sub>
