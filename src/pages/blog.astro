@@ -16,7 +16,7 @@ const description = "Aria's blog of assorted content";
         <h1 class="text-2xl">All blog posts:</h1>
     <ul>
         {
-            allPosts.map((post: any) => (
+            allPosts.reverse().map((post: any) => (
                 <BlogEntry
                     url={`/posts/${post.id}/`}
                     title={post.data.title}
