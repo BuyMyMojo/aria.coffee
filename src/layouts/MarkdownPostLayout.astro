@@ -2,6 +2,7 @@
 import Partition from "../components/Partition.astro";
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
+const { lastModified }  = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title} description={frontmatter.description}>
@@ -9,7 +10,8 @@ const { frontmatter } = Astro.props;
         <p>
             <h1 class="text-xl font-bold underline">{frontmatter.title}</h1>
             <em>{frontmatter.description}</em><br />
-            <sub>Date: {frontmatter.pubDate.toLocaleDateString()}</sub>
+            <sub>Date: {frontmatter.pubDate.toLocaleDateString()}</sub><br />
+            <sub>Last Modified: {lastModified}</sub>
         </p>
     </Partition>
     <Partition>
