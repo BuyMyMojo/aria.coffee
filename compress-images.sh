@@ -10,7 +10,7 @@ fi
 
 if command -v oxipng >/dev/null 2>&1 ; then
     echo "oxipng found"
-    oxipng -o max -a -r ./public
+    oxipng -o max -a -r ./dist
 else
     echo "oxipng was not found! install with your package manager, cargo or get the binary from the github"
     echo "https://github.com/shssoichiro/oxipng/releases/latest"
