@@ -19,11 +19,16 @@ export default defineConfig({
   image: {
     domains: ["buymymojo.net", "aria.coffee", "github.com", "githubusercontent.com", "avatars.githubusercontent.com", "camo.githubusercontent.com", "user-images.githubusercontent.com", "private-user-images.githubusercontent.com"],
   },
-
-  adapter: node({
-    mode: "standalone",
-  }),
   markdown: {
     remarkPlugins: [remarkModifiedTime],
   },
 });
+
+
+// Bellow is for when dedicated server is wanted?
+
+// ,
+//
+//   adapter: node({
+//     mode: "standalone",
+//   })
