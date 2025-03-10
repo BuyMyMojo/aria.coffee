@@ -3,6 +3,7 @@
 	src: local("Noto Sans"), url("/static/fonts/NotoSansDisplay-Regular.ttf")
 		format("truetype"), url("/static/fonts/NotoSans-Regular.ttf")
 		format("truetype");
+	font-display: auto;
 } */
 
 @font-face {
@@ -11,7 +12,8 @@
 	/* ,url("/static/fonts/comic shanns.otf")
 		format("opentype"), url("/static/fonts/comic shanns 2.ttf")
 		format("truetype"); */
-}
+		font-display: swap;
+	}
 
 @font-face {
 	font-family: "Comic Mono";
@@ -19,6 +21,7 @@
 		format("truetype"),
 		url("https://dtinth.github.io/comic-mono-font/ComicMono.ttf")
 		format("truetype");
+	font-display: fallback;
 }
 
 :root {

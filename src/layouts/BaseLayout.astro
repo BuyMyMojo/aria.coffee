@@ -5,7 +5,7 @@ import NavHeader from "../components/NavHeader.astro";
 import "../styles/aria.css";
 import EmbedCode from "../components/EmbedCode.astro";
 
-const { pageTitle } = Astro.props;
+const { pageTitle, description = "Aria's little corner of the web" } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,16 +14,22 @@ const { pageTitle } = Astro.props;
         <Favicon />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description}>
         <title>{pageTitle}</title>
-        <EmbedCode pageTitle={pageTitle} />
+        <EmbedCode pageTitle={pageTitle} description={description} />
 
         <link rel="preconnect" href="https://transring.neocities.org" />
         <link rel="dns-prefetch" href="https://transring.neocities.org" />
+        <link rel="preload" as="script" href="https://transring.neocities.org/ring.js">
+        <link rel="preload" as="image" href="https://transring.neocities.org/widget/trans/button.png">
+        <link rel="preload" as="image" href="https://transring.neocities.org/widget/trans/left.png">
+        <link rel="preload" as="image" href="https://transring.neocities.org/widget/trans/right.png">
+
 
         <link
             rel="alternate"
             type="application/rss+xml"
-            title="amemoia's blog"
+            title="Aria's blog"
             href={new URL("rss.xml", Astro.site)}
         />
     </head>

@@ -5,7 +5,7 @@
 On dev machine:
 
 ```sh
-pnpm run build && mv ./dist ./dist-new && croc send ./dist-new
+pnpm run build && rm -r ./dist-new && mv ./dist ./dist-new && croc send ./dist-new
 ```
 
 on server:
