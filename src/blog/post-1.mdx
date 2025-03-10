@@ -5,6 +5,11 @@ description: 'This is the first post of my new website.'
 author: 'Aria'
 tags: ["blogging", "learning in public", "development"]
 ---
+import { Picture, getImage } from "astro:assets";
+import FriendLink from "../components/FriendLink.astro";
+
+import orderConfirmedImg from "../img/blog/aira.coffee-cloudflair-alldone.png";
+import useAFrameworkImg from "../img/blog/UseAFramework_20241217_002719.png";
 
 I'll be expanding this as I work on it but for now this is my first more indepth website
 
@@ -18,7 +23,13 @@ Recently I joined a community for some very **🏳️‍⚧️**(mostly, there a
 
 We where discussing domain names and this one wasn't owned! I'm addicted to coffee so it seemed like the perfect fit for me~
 
-![A picture of the "Order Confirmed" pafe from cloudflair](/static/img/blog/aira.coffee-cloudflair-alldone.png)
+<Picture
+        src={orderConfirmedImg}
+        quality={95}
+        densities={[0.75, 1, 2]}
+        formats={['avif', 'webp', 'jpeg']}
+        alt="A picture of the 'Order Confirmed' pafe from cloudflair"
+    />
 
 After purchasing I needed to decide what I wanted to do with it, for a little over a day (Until not long before I started to write this) it just redirected to my [BlueSky](https://bsky.app/profile/did:plc:bzrn33tcfgjxnsanvg6py3xn) account.
 
@@ -30,11 +41,23 @@ This has been my first time working mostly from scratch to make my personal webs
 
 This website was made using [Astro](https://astro.build/) for the build system and I decided to use [Tailwind](https://tailwindcss.com/) instead of basing my own css off Alex's after she convinced me.
 
-![A discord screenshot containing the following messages: Sent by @BuyMyMojo: "getting my brain around css and styling hurts, I'm man handling some of your css @amemoia", Sent by @amemoia: "DONT LOOK AT MY CSS ITS SO BAD", "EVERYTHING HAS ITS OWN CLASS", "USE A FRAMEWORK"](/static/img/blog/UseAFramework_20241217_002719.png)
+<Picture
+        src={useAFrameworkImg}
+        quality={95}
+        densities={[0.75, 1, 2]}
+        formats={['avif', 'webp', 'jpeg']}
+        alt="A discord screenshot containing the following messages: Sent by @BuyMyMojo: 'getting my brain around css and styling hurts, I'm man handling some of your css @amemoia', Sent by @amemoia: 'DONT LOOK AT MY CSS ITS SO BAD', 'EVERYTHING HAS ITS OWN CLASS', 'USE A FRAMEWORK'"
+    />
 
 While I got started early on following the basic [blog tutorial](https://docs.astro.build/en/tutorial/0-introduction/) but took a break to make my very first 88x31px button!
 
-![88x31 pixel button with the text 'Aria' and the top half of a human human face on the right hand side](https://web.archive.org/web/20241216133507if_/https://dev.aria.coffee/static/img/buttons/aria.gif)
+<a href="https://aria.coffee/" target="_blank">
+                <img
+                    alt="88x31 pixel button with the text 'Aria' and the top half of a human human face on the right hand side"
+                    src="https://aria.coffee/static/img/buttons/aria.gif"
+                    style="min-width: 88px; width: 176px; min-height: 31px; height: 62px; image-rendering: pixelated;"
+                />
+            </a>
 <sub>This is a version of the image hosted on archive.org so the blog doesn't change</sub>
 
 I made it pretty quickly in Krita using the lovely picute of me which was drawn by Auryn!
