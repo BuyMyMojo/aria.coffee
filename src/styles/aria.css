@@ -12,8 +12,8 @@
 	/* ,url("/static/fonts/comic shanns.otf")
 		format("opentype"), url("/static/fonts/comic shanns 2.ttf")
 		format("truetype"); */
-		font-display: swap;
-	}
+	font-display: swap;
+}
 
 @font-face {
 	font-family: "Comic Mono";
@@ -72,7 +72,7 @@ a {
 }
 
 a:hover {
-	text-decoration-color: #F5A8B7;
+	text-decoration-color: #f5a8b7;
 	transition: text-decoration-color 0.25s;
 }
 
@@ -131,4 +131,35 @@ a:hover {
 	display: inline-block;
 	height: 1em;
 	vertical-align: -0.125em;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	text-decoration: underline 2px;
+	text-underline-offset: 2px;
+	text-decoration-color: #fff;
+}
+
+.tooltip:hover {
+	text-decoration-color: #f5a8b7;
+	transition: text-decoration-color 0.25s;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: auto;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
 }

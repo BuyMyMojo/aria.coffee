@@ -5,6 +5,13 @@ import Greeting from "../components/Greeting";
 import Social from "../components/Social.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Aria";
+
+const currentDate = new Date();
+const ariaBirthDate = new Date("2002-05-07");
+	
+const seconds = (currentDate.getTime() - ariaBirthDate.getTime()) / 1000;
+	
+const age = seconds/31556952;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -12,7 +19,7 @@ const pageTitle = "Aria";
         <main>
             <h1 class="text-4xl">Welcome!~</h1>
             <p>
-                I'm Aria, a 22 year old software developer and electronics
+                I'm Aria, a <span class="tooltip">{Math.floor(age)}<span class="tooltiptext"><nobr>{age.toFixed(8)} years to be exact!</nobr></span></span> year old software developer and electronics
                 repair tech out of rural <span style="color: #D4F7CF;"
                     >Australia <span
                         class="backdrop-brightness-200 px-1 text-2xl rounded"
@@ -29,4 +36,23 @@ const pageTitle = "Aria";
         <h1>Socials:</h1>
         <Social />
     </Partition>
+    <script>
+        setInterval(() => {
+        	const currentDate = new Date();
+			const ariaBirthDate = new Date("2002-05-07");
+	
+			const seconds = (currentDate.getTime() - ariaBirthDate.getTime()) / 1000;
+	
+			const age = seconds/31556952;
+	
+			const ageElem = document.querySelector('.tooltip');
+
+            ageElem!.outerHTML = `<span class="tooltip">${Math.floor(age)}<span class="tooltiptext"><nobr>${age.toFixed(8)} years to be exact!</nobr></span></span>`;
+        }, 1000);
+    </script>
+
+<style is:inline>
+
+    </style>
 </BaseLayout>
+
