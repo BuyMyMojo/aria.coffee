@@ -1,0 +1,18 @@
+---
+import FriendLink from "../components/FriendLink.astro";
+import "../styles/aria.css";
+import Partition from "../components/Partition.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Aria's friends";
+const description = "All of Aria's friends with 88x31 buttons for you to click on!!";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <Partition>
+        <h1 class="text-2xl">You should not be here!!</h1>
+        <p>If you can see this page then something has gone a little silly!</p><br />
+        <p>There should be an <a href="https://zadzmo.org/code/nepenthes/" target="_blank">AI honey pot</a> on this page instead of this text!</p><br />
+        <p><a href="https://web.archive.org/web/2/https://zadzmo.org/code/nepenthes/" target="_blank">AI honey pot archive link just to be safe</a></p>
+    </Partition>
+</BaseLayout>
