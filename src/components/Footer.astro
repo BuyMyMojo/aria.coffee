@@ -5,7 +5,7 @@ import { Icon } from "astro-icon/components";
 import { execSync } from "node:child_process";
 
 const commitURL = import.meta.env.PUBLIC_COMMIT === "" ? "" : `${import.meta.env.PUBLIC_REPOURL}commit/${execSync(`git log -1 --pretty="format:%H"`)}`;
-const COMMIT = import.meta.env.PUBLIC_COMMIT === "" ? "Docker Build!" : `<a href=${commitURL}>${execSync(`git log -1 --pretty="format:%h"`)}</a>`;
+const COMMIT = import.meta.env.PUBLIC_COMMIT === "" ? "Docker Build!" : `<a href=${commitURL} target="_blank">${execSync(`git log -1 --pretty="format:%h"`)}</a>`;
 ---
 
 <hr class="h-1" style="" />
