@@ -1,0 +1,43 @@
+---
+import Favicon from "../components/Favicon.astro";
+import Footer from "../components/Footer.astro";
+import NavHeader from "../components/NavHeader.astro";
+import "../styles/aria.css";
+import EmbedCode from "../components/EmbedCode.astro";
+import JxlLoader from "../components/jxl-loader.astro";
+
+const { pageTitle, description = "Aria's little corner of the web" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <Favicon />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description}>
+        <title>{pageTitle}</title>
+        <EmbedCode pageTitle={pageTitle} description={description} />
+
+        <link rel="preconnect" href="https://transring.neocities.org" />
+        <link rel="dns-prefetch" href="https://transring.neocities.org" />
+        <link rel="preload" as="script" href="https://transring.neocities.org/ring.js">
+        <link rel="preload" as="image" href="https://transring.neocities.org/widget/trans/button.png">
+        <link rel="preload" as="image" href="https://transring.neocities.org/widget/trans/left.png">
+        <link rel="preload" as="image" href="https://transring.neocities.org/widget/trans/right.png">
+
+        <JxlLoader />
+
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="Aria's blog"
+            href={new URL("rss.xml", Astro.site)}
+        />
+    </head>
+    <body>
+      <NavHeader />
+      <slot />
+      <Footer />
+    </body>
+</html>

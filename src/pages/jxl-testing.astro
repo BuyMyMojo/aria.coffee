@@ -1,0 +1,31 @@
+---
+import Partition from "../components/Partition.astro";
+
+import BaseLayoutJxl from "../layouts/BaseLayoutJxl.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Testing JpegXL support!";
+
+---
+
+<BaseLayoutJxl pageTitle={pageTitle}>
+    <Partition>
+        <h1 class="text-4xl font-bold">{pageTitle}</h1>
+    </Partition>
+    <Partition>
+        <h2 class="text-3xl font-bold">About</h2>
+        <p>I found <a href="https://github.com/niutech/jxl.js" target="_blank">this</a> neat snippet of code for adding </p>
+    </Partition>
+    <Partition>
+        <h3 class="text-2xl text-center font-bold">PNG:</h2>
+        <img src="/static/img/sites/avatar.png" />
+    </Partition>
+    <Partition>
+        <h3 class="text-2xl text-center font-bold">AVIF:</h2>
+        <img src="/static/img/sites/avatar.avif" />
+    </Partition>
+    <Partition>
+        <h3 class="text-2xl text-center font-bold">JXL:</h2>
+        <img src="/static/img/sites/avatar.jxl" />
+    </Partition>
+</BaseLayoutJxl>
+
