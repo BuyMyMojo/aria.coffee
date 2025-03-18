@@ -1,0 +1,20 @@
+---
+import Partition from "../components/Partition.astro";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "A bunch of other pages!";
+
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <Partition>
+        <h1 class="text-4xl font-bold">{pageTitle}</h1>
+        <p>Here are some other pages I have for various reasons!</p>
+
+        <ul class=" list-disc px-8">
+            <li><a href="/jxl-testing">JpegXL Decoder Test</a></li>
+            <li><a href="/other buttons">Extra 88x31 buttons</a></li>
+        </ul>
+    </Partition>
+</BaseLayout>
+
