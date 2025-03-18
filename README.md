@@ -11,8 +11,10 @@ Example URL: `https://github.com/BuyMyMojo/aria.coffee/` - Notice the trailing `
 On dev machine:
 
 ```sh
-pnpm run build && rm -r ./dist-new && mv ./dist ./dist-new && croc send ./dist-new
+pnpm run build && rm -r ./dist-new && mv ./dist ./dist-new && croc send --zip ./dist-new
 ```
+
+The `--zip` is required as there is some file name somewhere that croc doesn't like so putting in a zip fixes this.
 
 on server:
 
