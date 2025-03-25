@@ -7,5 +7,8 @@ pkgs.mkShell {
     pkgs.nodejs
     pkgs.pnpm
     pkgs.biome
+    pkgs.oxipng
+    pkgs.jpegoptim
+    pkgs.croc
   ];
 }
