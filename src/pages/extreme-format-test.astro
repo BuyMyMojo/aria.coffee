@@ -1,0 +1,73 @@
+---
+import FriendLink from "../components/FriendLink.astro";
+import "../styles/aria.css";
+import Partition from "../components/Partition.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const pageTitle = "Extreme partition test";
+const description = "All of Aria's friends with 88x31 buttons for you to click on!!";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <Partition>
+        <h3 class="text-xl font-bold text-center">"All In One"</h3>
+        <video controls preload="metadata">
+            <source src="/static/videos/extreme-format-test/TOTK60-web-av1.mp4" type="video/mp4; codecs=av01" />
+            <source src="/static/videos/extreme-format-test/TOTK60-web-x265.mp4" type="video/mp4" />
+            <source src="/static/videos/extreme-format-test/TOTK60-web-vp9.mp4" type="video/mp4; codecs=vp9" />
+            <source src="/static/videos/extreme-format-test/TOTK60-web-x264.mp4" type="video/mp4; codecs=avc1.4d002a" />
+            <source src="/static/videos/extreme-format-test/TOTK60-web-theora.ogg" type="video/ogg; codecs=theora" />
+            <source src="/static/videos/extreme-format-test/TOTK60-web-mpeg4.mp4" type="video/mp4" />
+            <source src="/static/videos/extreme-format-test/TOTK60-web-mpeg4.avi" type="video/avi" />
+            <source src="/static/videos/extreme-format-test/TOTK60-web-mpeg2.mp4" type="video/mp4" />
+        </video>
+    </Partition>
+    <Partition>
+        <h3 class="text-xl font-bold text-center">AV1</h3>
+        <video controls preload="metadata">
+            <source src="/static/videos/extreme-format-test/TOTK60-web-av1.mp4" type="video/mp4; codecs=av1" />
+        </video>
+    </Partition>
+    <Partition>
+        <h3 class="text-xl font-bold text-center">X265</h3>
+        <video controls preload="metadata">
+            <source src="/static/videos/extreme-format-test/TOTK60-web-x265.mp4" type="video/mp4" />
+        </video>
+    </Partition>
+    <Partition>
+        <h3 class="text-xl font-bold text-center">VP9</h3>
+        <video controls preload="metadata">
+            <source src="/static/videos/extreme-format-test/TOTK60-web-vp9.mp4" type="video/mp4; codecs=vp9" />
+        </video>
+    </Partition>
+    <Partition>
+        <h3 class="text-xl font-bold text-center">X264</h3>
+        <video controls preload="metadata">
+            <source src="/static/videos/extreme-format-test/TOTK60-web-x264.mp4" type="video/mp4; codecs=avc1.4d002a" />
+        </video>
+    </Partition>
+    <Partition>
+        <h3 class="text-xl font-bold text-center">Theora</h3>
+        <video controls preload="metadata">
+            <source src="/static/videos/extreme-format-test/TOTK60-web-theora.ogg" type="video/ogg; codecs=theora" />
+        </video>
+    </Partition>
+    <Partition>
+        <h3 class="text-xl font-bold text-center">MPEG4 (MP4)</h3>
+        <video controls preload="metadata">
+            <source src="/static/videos/extreme-format-test/TOTK60-web-mpeg4.mp4" type="video/mp4" />
+        </video>
+    </Partition>
+    <Partition>
+        <h3 class="text-xl font-bold text-center">MPEG4 (AVI)</h3>
+        <video controls preload="metadata">
+            <source src="/static/videos/extreme-format-test/TOTK60-web-mpeg4.avi" type="video/avi" />
+        </video>
+    </Partition>
+    <Partition>
+        <h3 class="text-xl font-bold text-center">MPEG2</h3>
+        <video controls preload="metadata">
+            <source src="/static/videos/extreme-format-test/TOTK60-web-mpeg2.mp4" type="video/mp4" />
+        </video>
+    </Partition>
+</BaseLayout>
