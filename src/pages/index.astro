@@ -4,14 +4,15 @@ import Partition from "../components/Partition.astro";
 import Greeting from "../components/Greeting";
 import Social from "../components/Social.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import FriendLink from "../components/FriendLink.astro";
 const pageTitle = "Aria";
 
 const currentDate = new Date();
 const ariaBirthDate = new Date("2002-05-07");
-	
+
 const seconds = (currentDate.getTime() - ariaBirthDate.getTime()) / 1000;
-	
-const age = seconds/31556952;
+
+const age = seconds / 31556952;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -19,8 +20,12 @@ const age = seconds/31556952;
         <main>
             <h1 class="text-4xl">Welcome!~</h1>
             <p>
-                I'm Aria, a <span class="tooltip">{Math.floor(age)}<span class="tooltiptext"><nobr>{age.toFixed(8)} years to be exact!</nobr></span></span> year old software developer and electronics
-                repair tech out of rural <span style="color: #D4F7CF;"
+                I'm Aria, a <span class="tooltip"
+                    >{Math.floor(age)}<span class="tooltiptext"
+                        ><nobr>{age.toFixed(8)} years to be exact!</nobr></span
+                    ></span
+                > year old software developer and electronics repair tech out of
+                rural <span style="color: #D4F7CF;"
                     >Australia <span
                         class="backdrop-brightness-200 px-1 text-2xl rounded"
                         >🇦🇺</span
@@ -30,29 +35,153 @@ const age = seconds/31556952;
         </main>
     </Partition>
     <Partition>
-        <Greeting client:load messages={["Yo", "Hallo", "Ayo", "Hiya", "You're cute"]} />
+        <Greeting
+            client:load
+            messages={["Yo", "Hallo", "Ayo", "Hiya", "You're cute"]}
+        />
     </Partition>
     <Partition>
         <h1>Socials:</h1>
         <Social />
     </Partition>
+    <Partition>
+        <h1 class="text-2xl">These are cool people!!</h1>
+        <br />
+        <div class="flex outline-dotted p-5 flex-wrap justify-center">
+            <FriendLink
+                name="Alyxia"
+                image="https://alyxia.dev/static/img/88x31/self.png"
+                target="https://alyxia.dev"
+            />
+            <div class="outline-dashed flex outline-3 mx-1">
+                <FriendLink
+                    name="Prefetcher"
+                    image="https://nanoshinono.me/prefetcher.gif"
+                    target="https://nanoshinono.me/"
+                />
+                <FriendLink
+                    name="Ata"
+                    image="https://ata.moe/88x31.png"
+                    target="https://ata.moe"
+                />
+            </div>
+            <FriendLink
+                name="Amemoia"
+                image="https://buh.moe/resources/buttons/88x31.gif"
+                target="https://buh.moe/"
+            />
+            <FriendLink
+                name="Hayden"
+                image="https://hayden.moe/88x31/hayden.png"
+                target="https://hayden.moe/"
+            />
+            <FriendLink
+                name="Onzecki"
+                image="https://onz.ee/assets/88x31s/png/onzecki.png"
+                target="https://onz.ee/"
+            />
+            <FriendLink
+                name="NotNite"
+                image="https://notnite.com/buttons/notnite.png"
+                target="https://notnite.com/"
+            />
+            <FriendLink
+                name="0x5066"
+                image="https://erisdump.neocities.org/buttons/88x31_1.gif"
+                target="https://erisdump.neocities.org"
+            />
+            <FriendLink
+                name="Espi"
+                image="https://espi.me/img/webring/espi.png"
+                target="https://www.espi.me"
+            />
+            <FriendLink
+                name="Alula"
+                image="https://alula.me/webring/alula.png"
+                target="https://alula.me/"
+            />
+            <FriendLink
+                name="Sapphic"
+                image="https://sapphic.moe/buttons/friends/sapphic.png"
+                target="https://sapphic.moe/"
+            />
+            <FriendLink
+                name="Miyuko"
+                image="https://calayucu.com/button-88x31.png"
+                target="https://calayucu.com"
+            />
+            <FriendLink
+                name="meow_d"
+                image="https://meow-d.github.io/assets/images/buttons/meow_d.webp"
+                target="https://meow-d.github.io/"
+            />
+            <div class="outline-dashed flex outline-3 mx-1">
+                <FriendLink
+                    name="~thermia"
+                    image="https://girlthi.ng/~thermia/img/88x31/thermia.gif"
+                    target="https://girlthi.ng/~thermia/"
+                />
+                <FriendLink
+                    name="girlthi.ng"
+                    image="https://girlthi.ng/~thermia/img/88x31/girlthing.gif"
+                    target="https://girlthi.ng/"
+                />
+            </div>
+            <FriendLink
+                name="LeNooby 09"
+                image="https://lenooby09.tech/88x31/88x31.png"
+                target="https://lenooby09.tech"
+            />
+            <FriendLink
+                name="Ackwell"
+                image="https://ackwell.au/assets/88x31/ackwell-coil.png"
+                target="https://ackwell.au"
+            />
+        </div>
+        <br />
+        <a href="/other buttons">Extra 88x31 buttons!</a>
+    </Partition>
+    <Partition>
+        <h2>My badge:</h2>
+        <div class="flex w-fit h-fit" style="background-color: #FFFCBC;">
+            <a href="https://aria.coffee/" target="_blank">
+                <img
+                    alt="Aria"
+                    src="https://aria.coffee/static/img/buttons/aria.gif"
+                    style="min-width: 88px; width: 176px; min-height: 31px; height: 62px; image-rendering: pixelated;"
+                />
+            </a>
+        </div>
+        <br />
+        <p>Code:</p>
+        <label>
+            <textarea
+                onclick="this.select()"
+                readonly
+                cols="60"
+                rows="2"
+                class="rounded backdrop-brightness-0"
+                style="background-color: black;"
+                >&lt;img src="https://aria.coffee/static/img/buttons/aria.gif"
+                alt="Aria" style="image-rendering: pixelated;" /&gt;</textarea
+            >
+        </label>
+    </Partition>
     <script>
         setInterval(() => {
-        	const currentDate = new Date();
-			const ariaBirthDate = new Date("2002-05-07");
-	
-			const seconds = (currentDate.getTime() - ariaBirthDate.getTime()) / 1000;
-	
-			const age = seconds/31556952;
-	
-			const ageElem = document.querySelector('.tooltip');
+            const currentDate = new Date();
+            const ariaBirthDate = new Date("2002-05-07");
+
+            const seconds =
+                (currentDate.getTime() - ariaBirthDate.getTime()) / 1000;
+
+            const age = seconds / 31556952;
+
+            const ageElem = document.querySelector(".tooltip");
 
             ageElem!.outerHTML = `<span class="tooltip">${Math.floor(age)}<span class="tooltiptext"><nobr>${age.toFixed(8)} years to be exact!</nobr></span></span>`;
         }, 1000);
     </script>
 
-<style is:inline>
-
-    </style>
+    <style is:inline></style>
 </BaseLayout>
-
