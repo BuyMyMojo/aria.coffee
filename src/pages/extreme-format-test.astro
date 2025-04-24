@@ -5,10 +5,10 @@ import Partition from "../components/Partition.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "Extreme format test";
-const description = "All of Aria's friends with 88x31 buttons for you to click on!!";
+const description = "A terrible test of video formats";
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} description={description}>
     <Partition>
         <h3 class="text-xl font-bold text-center">"All In One"</h3>
         <video controls preload="metadata">

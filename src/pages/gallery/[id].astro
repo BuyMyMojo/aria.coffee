@@ -1,0 +1,61 @@
+---
+import { getCollection } from "astro:content";
+import { getAlbumImages } from "../../utils/albums";
+import { Picture } from "astro:assets";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import NavHeader from "../../components/NavHeader.astro";
+
+export async function getStaticPaths() {
+    const albums = await getCollection("albums");
+
+    const paths = Object.values(albums).map((album) => {
+        return {
+            params: {
+                id: album.id,
+            },
+            props: {
+                album,
+            },
+        };
+    });
+
+    return paths;
+}
+
+import "../../styles/aria.css";
+
+const { album } = Astro.props;
+const images = await getAlbumImages(album.id);
+---
+<BaseLayout>
+<div class="text-center my-16 mb-32">
+    <h1 class="text-3xl xl:text-6xl font-bold">
+        {album.data.title}
+    </h1>
+    <p class="text-lg xl:text-2xl my-4">
+        {album.data.description}
+    </p>
+
+    <div
+        class="mx-auto container my-8 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5"
+    >
+        {
+            images.map((image) => (
+                <Picture
+                    src={image}
+                    alt={`Image from ${album.data.title} album`}
+                    formats={["avif", "webp", "jpeg"]}
+                    quality={90}
+                    class="rounded-sm mb-4 border border-transparent hover:border-gray-300 transition-all duration-300 ease-in-out hover:shadow-lg"
+                    loading="lazy"
+                />
+            ))
+        }
+    </div>
+
+    <p class="text-lg my-4 text-center">
+        <a href="/albums/" class="text-white hover:underline">Go back</a>
+    </p>
+</div>
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Partition from "../components/Partition.astro";
+
+const pageTitle = "Aria's Gallery";
+const description = "All of Aria's albums!";
+
+import "../styles/aria.css";
+import { Picture } from "astro:assets";
+
+const albums = await getCollection("albums");
+---
+
+<BaseLayout pageTitle={pageTitle} description={description}>
+    <div class="text-center">
+        <h1 class="text-5xl font-bold text-center my-8">Aria's Gallery!</h1>
+        {
+            albums.map((item) => (
+                <Partition>
+                    <a
+                        href={`/gallery/${item.id}`}
+                        class="group transition-all mb-4 block"
+                    >
+                        <Picture
+                            src={item.data.cover}
+                            alt={item.data.title}
+                            formats={["avif", "webp", "jpeg"]}
+                            width={638}
+                            quality="mid"
+                            class:list={[
+                                "rounded-lg transition-all",
+                                "group-hover:shadow-lg group-hover:opacity-90",
+                            ]}
+                        />
+                        <div class="mt-4 text-center">
+                            <strong class="font-normal">
+                                {item.data.title}
+                            </strong>
+                            <p class="text-xs">{item.data.description}</p>
+                        </div>
+                    </a>
+                </Partition>
+            ))
+        }
+    </div>
+</BaseLayout>
