@@ -1,7 +1,7 @@
 export async function getAlbumImages(albumId: string) {
     // 1. List all album files from collections path
     let images = import.meta.glob<{ default: ImageMetadata }>(
-      "/src/content/albums/**/*.{jpeg,jpg,webp,avif,png,jxl}"
+      "/src/content/albums/**/*.{jpeg,jpg,webp,avif,png,jxl,heic}"
     );
   
     // 2. Filter images by albumId
@@ -13,8 +13,6 @@ export async function getAlbumImages(albumId: string) {
     const resolvedImages = await Promise.all(
       Object.values(images).map((image) => image().then((mod) => mod.default))
     );
-  
-    // 4. Shuffle images in random order
-    resolvedImages.sort(() => Math.random() - 0.5);
+
     return resolvedImages;
   }

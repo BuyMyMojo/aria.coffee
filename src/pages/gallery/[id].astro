@@ -27,6 +27,7 @@ import "../../styles/aria.css";
 
 const { album } = Astro.props;
 const images = await getAlbumImages(album.id);
+const sorted = images.sort((a, b) => a.src.localeCompare(b.src));
 ---
 <BaseLayout>
 <div class="text-center my-16 mb-32">
@@ -41,14 +42,15 @@ const images = await getAlbumImages(album.id);
         class="mx-auto container my-8 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5"
     >
         {
-            images.map((image) => (
+            sorted.map((image) => (
                 <Picture
                     src={image}
                     alt={`Image from ${album.data.title} album`}
                     formats={["avif", "webp", "jpeg"]}
-                    quality={90}
+                    quality={95}
                     class="rounded-sm mb-4 border border-transparent hover:border-gray-300 transition-all duration-300 ease-in-out hover:shadow-lg"
                     loading="lazy"
+                    decoding="async"
                 />
             ))
         }
