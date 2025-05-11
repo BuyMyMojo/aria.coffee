@@ -4,6 +4,7 @@ const discord = "https://discord.com/users/383507911160233985";
 const github = "https://github.com/BuyMyMojo";
 const steam = "https://steamcommunity.com/profiles/76561198227003516";
 const bsky = "https://bsky.app/profile/did:plc:bzrn33tcfgjxnsanvg6py3xn";
+const bskybackup = "https://bsky.app/profile/did:plc:valun42etpm73we7bgyh64ge";
 const bskyArchive = "https://buymymojo.net/bsky/";
 
 import { Icon } from "astro-icon/components";
@@ -16,6 +17,13 @@ import { Icon } from "astro-icon/components";
             ><Icon name="meteor-icons:bluesky" class={"svg-inline"} /> Bluesky</a
         > - <button id="bskypid"
             >@aria.coffee (Click to copy DID)</button
+        >
+    </li>
+    <li>
+        <a href={bskybackup} class="p-1" target="_blank"
+            ><Icon name="meteor-icons:bluesky" class={"svg-inline"} /> Bluesky Backup</a
+        > - <button id="bskypid-backup"
+            >@aria.pds.witchcraft.systems (Click to copy DID)</button
         >
     </li>
     <li>
@@ -51,10 +59,17 @@ import { Icon } from "astro-icon/components";
 
 <script>
     const bskypid = document.querySelector("#bskypid");
+    const bskypidbackup = document.querySelector("#bskypid-backup");
 
     if (bskypid != null) {
         bskypid.addEventListener("click", () => {
             navigator.clipboard.writeText("did:plc:bzrn33tcfgjxnsanvg6py3xn");
+        });
+    }
+
+    if (bskypidbackup != null) {
+        bskypidbackup.addEventListener("click", () => {
+            navigator.clipboard.writeText("did:plc:valun42etpm73we7bgyh64ge");
         });
     }
 </script>
