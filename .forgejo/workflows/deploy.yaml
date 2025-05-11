@@ -22,6 +22,8 @@ jobs:
 
       - name: Install pnpm
         uses: https://github.com/pnpm/action-setup@v4
+        with:
+          version: 10
 
       - name: Install Node.js
         uses: https://github.com/actions/setup-node@v4
