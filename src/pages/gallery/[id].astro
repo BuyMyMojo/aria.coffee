@@ -43,7 +43,7 @@ const sorted = images.sort((a, b) => a.src.localeCompare(b.src));
     >
         {
             sorted.map((image) => (
-                <Picture
+                <a href={image.src}><Picture
                     src={image}
                     alt={`Image from ${album.data.title} album`}
                     formats={["avif", "webp", "jpeg"]}
@@ -51,7 +51,7 @@ const sorted = images.sort((a, b) => a.src.localeCompare(b.src));
                     class="rounded-sm mb-4 border border-transparent hover:border-gray-300 transition-all duration-300 ease-in-out hover:shadow-lg"
                     loading="lazy"
                     decoding="async"
-                />
+                /></a>
             ))
         }
     </div>
