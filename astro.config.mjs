@@ -42,6 +42,7 @@ export default defineConfig({
             "girlthi.ng",
             "lenooby09.tech",
             "ackwell.au",
+            "ari.express"
         ],
     },
     markdown: {
