@@ -42,17 +42,19 @@ jobs:
           ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "mkdir -p /var/www/Aria/"
 
       - name: Clear old backup
+        if: success() || failure()
         run: |
-          sleep 5s; ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "[ -d "/var/www/Aria/dist-old" ] && rm -r /var/www/Aria/dist-old"
+          ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "[ -d "/var/www/Aria/dist-old" ] && rm -r /var/www/Aria/dist-old"
 
       - name: Backup current install
+        if: success() || failure()
         run: |
-          sleep 5s; ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "[ -d "/var/www/Aria/dist" ] && mv /var/www/Aria/dist /var/www/Aria/dist-old"
+          ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "[ -d "/var/www/Aria/dist" ] && mv /var/www/Aria/dist /var/www/Aria/dist-old"
 
       - name: Copy over new build-action
         run: |
-          sleep 5s; scp -i ~/.ssh/aria-coffee-deploy -rv ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
+          scp -i ~/.ssh/aria-coffee-deploy -rv ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
       
       - name: Set permissions on the deployed files
         run: |
-          sleep 5s; ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "chmod -R 755 /var/www/Aria/dist"
+          ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "chmod -R 755 /var/www/Aria/dist"
