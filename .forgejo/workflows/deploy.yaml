@@ -38,16 +38,17 @@ jobs:
         run: pnpm run build-action
 
       - name: Create folder if not exists
+        continue-on-error: true
         run: |
           ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "mkdir -p /var/www/Aria/"
 
       - name: Clear old backup
-        if: success() || failure()
+        continue-on-error: true
         run: |
           ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "[ -d "/var/www/Aria/dist-old" ] && rm -r /var/www/Aria/dist-old"
 
       - name: Backup current install
-        if: success() || failure()
+        continue-on-error: true
         run: |
           ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "[ -d "/var/www/Aria/dist" ] && mv /var/www/Aria/dist /var/www/Aria/dist-old"
 
