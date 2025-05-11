@@ -1,0 +1,12 @@
+---
+import Donations from "../components/Donations.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/aria.css";
+
+const pageTitle = "Give Aria money";
+const description = "Hey look sometime you gotta give your wealth to a cute girl";
+---
+
+<BaseLayout pageTitle={pageTitle} description={description}>
+    <Donations />
+</BaseLayout>
