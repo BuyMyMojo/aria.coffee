@@ -1,0 +1,89 @@
+---
+const kofi = "https://ko-fi.com/buymyaria";
+const buymeacoffee = "https://buymeacoffee.com/buymymojo";
+
+
+import Partition from "../components/Partition.astro";
+
+import { Icon } from "astro-icon/components";
+---
+
+<Partition>
+    <h1>Feel free to fund me at these places:</h1>
+    <ul class="list-disc p-4 whitespace-nowrap">
+        <li>
+            <a href={kofi} class="p-1" target="_blank"
+                ><Icon name="hugeicons:ko-fi" class={"svg-inline"} /> Ko-Fi</a>
+        </li>
+        <li>
+            <a href={buymeacoffee} class="p-1" target="_blank"
+                ><Icon name="cib:buy-me-a-coffee" class={"svg-inline"} /> Buy Me a Coffee</a>
+        </li>
+        <li>
+            <Icon name="token:xmr" class={"svg-inline"} /> XMR: <textarea
+                onclick="this.select()"
+                readonly
+                cols="95"
+                rows="1"
+                class="rounded backdrop-brightness-0"
+                style="background-color: var(--third-colour); resize: none;"
+                >48NZQ5rYpiNEjNtsWKbyniVY3FpJ9kLVA815cxfSMPF5gvjrBiHH9x5JLr3aBYhvKvENCdhrYgzQ9LhBnR5NoinWDCGBzNm</textarea
+            >
+        </li>
+        <li>
+            <Icon name="token:btc" class={"svg-inline"} /> BTC: <textarea
+                onclick="this.select()"
+                readonly
+                cols="42"
+                rows="1"
+                class="rounded backdrop-brightness-0"
+                style="background-color: var(--third-colour); resize: none;"
+                >bc1qeqz2fswpn4hjjy373gyvjgkq63hv7mknwd6cau</textarea
+            >
+        </li>
+        <li>
+            <Icon name="token:ltc" class={"svg-inline"} /> LTC: <textarea
+                onclick="this.select()"
+                readonly
+                cols="34"
+                rows="1"
+                class="rounded backdrop-brightness-0"
+                style="background-color: var(--third-colour); resize: none;"
+                >LW4tGWNzYQ21eJ8G2LZaLqroYU67nSNwnY</textarea
+            >
+        </li>
+        <li>
+            <Icon name="token:eth" class={"svg-inline"} /> ETH: <textarea
+                onclick="this.select()"
+                readonly
+                cols="42"
+                rows="1"
+                class="rounded backdrop-brightness-0"
+                style="background-color: var(--third-colour); resize: none;"
+                >0xDd947270bCE2bBB3a3E3eCc4eA5095c14aa9ec58</textarea
+            >
+        </li>
+        <li>
+            <Icon name="token:usdc" class={"svg-inline"} /> USDC(ETH): <textarea
+                onclick="this.select()"
+                readonly
+                cols="42"
+                rows="1"
+                class="rounded backdrop-brightness-0"
+                style="background-color: var(--third-colour); resize: none;"
+                >0xDd947270bCE2bBB3a3E3eCc4eA5095c14aa9ec58</textarea
+            >
+        </li>
+        <li>
+            <Icon name="token:usdt" class={"svg-inline"} /> USDT(ETH): <textarea
+                onclick="this.select()"
+                readonly
+                cols="42"
+                rows="1"
+                class="rounded backdrop-brightness-0"
+                style="background-color: var(--third-colour); resize: none;"
+                >0xDd947270bCE2bBB3a3E3eCc4eA5095c14aa9ec58</textarea
+            >
+        </li>
+    </ul>
+</Partition>
