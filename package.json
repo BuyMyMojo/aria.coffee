@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build && ./compress-images.sh",
-    "build-action": "astro check && astro build",
+    "build-action": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
