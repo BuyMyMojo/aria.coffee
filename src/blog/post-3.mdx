@@ -1,0 +1,266 @@
+---
+title: 'My Online Identity and Security'
+pubDate: 2025-05-13T00:00:00.000+11
+description: 'Time to get my keys and addresses all sorted'
+author: 'Aria'
+tags: ["learning in public", "security", "GPG"]
+---
+import { Picture, getImage } from "astro:assets";
+import ssh_autofill from "../img/blog/Screenshot_20250513_004022.png";
+
+## Email
+
+My past emails, like hello@buymymojo.net, have been shackled to google because I relied on "Login with google" a little too much when I was younger and now I'm stuck with it... at least until I wanna deal with *the horrors* of figuring out what accounts I'll lose access too.
+
+In the mean time I need a new personal email that actually fits my needs! For this I decided on [purelymail](https://purelymail.com/) as it is just one of the best deals around if you just *need email*, which is what I'm here for.
+
+My new email is hello@aria.coffee! More on communication standards and stuff bellow!
+
+## GPG
+
+So for the longest time I have handled PGP very poorly, my main use case was literally just "I want that pretty verified label on my github commits" which is NOT a good reason!
+
+I am setting out to fix this and learn why things are done the way they are, my main goals is to have a key I can proudly display on my website and know I did everything properly and have taken proper measures to not lose it.
+
+First thing first is to generate the key, so one ed25519 generation later and we have it!
+
+```bash
+gpg --full-generate-key
+```
+
+Next I need to make revoke keys just in case. I will create two keys, one for if the key is compromised and one for if I replace this key in the future.
+```bash
+gpg --gen-revoke 49776EAC872B884B > 49776EAC872B884B_revoke_comp.asc
+# Please select the reason for the revocation:
+#   0 = No reason specified
+#   1 = Key has been compromised
+#   2 = Key is superseded
+#   3 = Key is no longer used
+#   Q = Cancel
+# (Probably you want to select 1 here)
+# Your decision? 1
+# Enter an optional description; end it with an empty line:
+# > Please look https://aria.coffee/blog for more details!
+
+gpg --gen-revoke 49776EAC872B884B > 49776EAC872B884B_revoke_superseded.asc
+# Please select the reason for the revocation:
+#   0 = No reason specified
+#   1 = Key has been compromised
+#   2 = Key is superseded
+#   3 = Key is no longer used
+#   Q = Cancel
+# (Probably you want to select 1 here)
+# Your decision? 2
+# Enter an optional description; end it with an empty line:
+# > Please look https://aria.coffee/blog for more details!
+```
+
+Now I need to store these keys securely. I will create a 7z file that is encrypted
+```bash
+7z a -mx9 -mmt=off -pPASSWORDHERE 49776EAC872B884B_revoke_keyz.7z 49776EAC872B884B_revoke_comp.asc 49776EAC872B884B_revoke_superseded.asc
+```
+
+Since I want to store these files digitally somewhere and 7z [doesn't have redundancy](https://en.wikipedia.org/wiki/7z#Limitations) I will have to create some recovery data myself using [par2cmdline](https://github.com/Parchive/par2cmdline)
+```bash
+par2 c -r25 ./49776EAC872B884B_revoke_keyz.7z.par2 ./49776EAC872B884B_revoke_keyz.7z
+```
+
+Here I am using `-r25` to specify that I want enough recovery data that 25% of the archive could be corrupt and I still want to get it back, it is over kill and produces files totalling more than the origional archive but total these files are tiny so it is fine for me. This is now what the folder contains:
+
+```bash
+.
+├── 49776EAC872B884B_revoke_keyz.7z
+├── 49776EAC872B884B_revoke_keyz.7z.par2
+├── 49776EAC872B884B_revoke_keyz.7z.vol00+01.par2
+├── 49776EAC872B884B_revoke_keyz.7z.vol01+02.par2
+├── 49776EAC872B884B_revoke_keyz.7z.vol03+04.par2
+├── 49776EAC872B884B_revoke_keyz.7z.vol07+08.par2
+├── 49776EAC872B884B_revoke_keyz.7z.vol15+16.par2
+└── 49776EAC872B884B_revoke_keyz.7z.vol31+11.par2
+```
+
+One encrypted 7z containing the keys and 8 files that hold all the data I need to keep it safe from bitrot.
+
+just a quick cleanip before I do the same with a backup of my private key
+
+```bash
+mkdir pgp_revoke_keys && mv ./*.* ./pgp_revoke_keys/
+# .
+# └── pgp_revoke_keys
+#     ├── 49776EAC872B884B_revoke_keyz.7z
+#     ├── 49776EAC872B884B_revoke_keyz.7z.par2
+#     ├── 49776EAC872B884B_revoke_keyz.7z.vol00+01.par2
+#     ├── 49776EAC872B884B_revoke_keyz.7z.vol01+02.par2
+#     ├── 49776EAC872B884B_revoke_keyz.7z.vol03+04.par2
+#     ├── 49776EAC872B884B_revoke_keyz.7z.vol07+08.par2
+#     ├── 49776EAC872B884B_revoke_keyz.7z.vol15+16.par2
+#     └── 49776EAC872B884B_revoke_keyz.7z.vol31+11.par2
+```
+
+now to quickly backup my private and public keys
+
+```bash
+# Export
+gpg --export-secret-keys --armor 49776EAC872B884B > 49776EAC872B884B_secret.asc
+gpg --export --armor 49776EAC872B884B > 49776EAC872B884B_public.asc
+
+# Encrypt
+7z a -mx9 -mmt=off -pPASSWORDHERE 49776EAC872B884B_revoke_keyz.7z 49776EAC872B884B_secret.asc
+
+# Parity
+par2 c -r25 ./49776EAC872B884B_keys.par2 -- ./49776EAC872B884B_secret.7z 49776EAC872B884B_public.asc
+# .
+# ├── 49776EAC872B884B_keys.par2
+# ├── 49776EAC872B884B_keys.vol00+01.par2
+# ├── 49776EAC872B884B_keys.vol01+02.par2
+# ├── 49776EAC872B884B_keys.vol03+04.par2
+# ├── 49776EAC872B884B_keys.vol07+08.par2
+# ├── 49776EAC872B884B_keys.vol15+16.par2
+# ├── 49776EAC872B884B_keys.vol31+32.par2
+# ├── 49776EAC872B884B_keys.vol63+33.par2
+# ├── 49776EAC872B884B_public.asc
+# └── 49776EAC872B884B_secret.7z
+```
+
+This time I did parity a little different! we created the same 8 files but now they handle recovery for both `49776EAC872B884B_public.asc` and `49776EAC872B884B_secret.7z` since I plan on keeping those two together!
+
+Now I have all the backups I need I can upload my keys linked to hello@aria.coffee to key servers!
+
+```bash
+gpg --send-keys 49776EAC872B884B # Defaults to https://keyserver.ubuntu.com
+gpg --keyserver https://keys.openpgp.org --send-keys 49776EAC872B884B
+```
+
+You can now find my key on both places by searching hello@aria.coffee!
+<sub>
+[ubuntu key server](https://keyserver.ubuntu.com/pks/lookup?search=hello%40aria.coffee&fingerprint=on&op=index)
+
+[openpgp key server](https://keys.openpgp.org/search?q=hello@aria.coffee)
+</sub>
+
+## Passwords & Secure Managment
+
+I was going to go directly into SSH here but I needed to take care of something else first.
+
+After talking to [Ari](https://ari.express/) I was convinced to move my password and key managment over to [1password](https://1password.com/).
+
+After making anew account you are given an "Emergency Kit" PDF which contains the email you signed up with, a secret key generated directly by your device and not their servers for recovering your account and a blank space to enter in your password.
+
+Before this I used bitwarden so I exported my vault as a CSV file and took the time to clear out some unwanted fluf that I did not need saved... this experince was not very enjoyable, needing to manually tell 1password how to read the bitwarden CSV file isn't fun.
+
+Now that is over I can get into the real goodies that convinced me to switch, the `1password-cli`!
+
+Using this cli I can manage my vault from the terminal as you'd expect but I can also use it to handle ssh auth and git commit signing! There are also a ton of [shell plugins](https://developer.1password.com/docs/cli/shell-plugins) to automatically handle auth for different cli tools.
+
+We will now move onto the next section where I can go more indepth into using 1password
+
+## SSH
+
+Now that I have 1password I can quickly generate the ssh key:
+
+```bash
+op item create --category ssh --title "hello@aria.coffee"
+# ID:          [REDACTED]
+# Title:       hello@aria.coffee
+# Vault:       Personal ([REDACTED])
+# Created:     now
+# Updated:     now
+# Favorite:    false
+# Version:     1
+# Category:    SSH_KEY
+# Fields:
+#   public key:     ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBi5QCHIPTT6Uvq2SLxWUKxcN7RgdtrgJxVs2muVUbqe
+#   fingerprint:    SHA256:WqtcVnDMrv1lnUlNah5k31iywFUI/DV+5yHzCTO4Vds
+#   private key:    [use 'op item get [REDACTED] --reveal' to reveal]
+#   key type:       ed25519
+```
+
+this quickly generated an ssh key with the public key `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBi5QCHIPTT6Uvq2SLxWUKxcN7RgdtrgJxVs2muVUbqe` and saves it to my vault.
+
+once the kay I need to add a simple section to my ssh config:
+
+```toml
+Host *
+	IdentityAgent ~/.1password/agent.sock
+```
+
+from here I just need to add the public key to clients and git hosts and we're gaming, auth is even handles by 1password which can get set to use the same login flow as your system so if you have a finger print scanner setup you could use that for your ssh connections.
+
+while adding my key to https://git.aria.coffee and https://git.witchcraft.systems I noticed something very cool, 1password has autofill support for Forgejo and github!
+
+<a href ={ssh_autofill.src} target="_blank">
+<Picture
+        src={ssh_autofill}
+        quality={95}
+        densities={[0.75, 1, 2]}
+        formats={['avif', 'webp']}
+        fallbackFormat="jpeg"
+        alt="A picture of the 'Order Confirmed' pafe from cloudflair"
+    />
+</a>
+
+finally after [editing my gitconfig](https://developer.1password.com/docs/ssh/git-commit-signing/#step-1-configure-git-commit-signing-with-ssh) all my commits are now signed with the same ssh key!
+
+## AGE
+
+For encrypted messaging and files I prefer to use [age](https://github.com/FiloSottile/age)! This tool can take in ssh keys as the identity for encryption so I have setup some fish aliases to to the following:
+
+```bash
+op read "op://Personal/[REDACTED]/public key" | age --encrypt --armor -R - input.txt # the fish alias would end at the - so I can both pass in my own files and add recipients
+op read "op://Personal/[REDACTED]/private key?ssh-format=openssh" | age -d -i - input.txt
+```
+
+This uses 1password to fetch the correct key for encryption and decryption, making sure I can always decrypt my own files if needed.
+
+## Crypto
+
+Thanks to me being trans in rurual middle of nowhere I have been ordering my [HRT online](https://www.youtube.com/watch?v=o2Ggwe2j0Gc) and the most cost effective method to do so is crypto.
+
+For holding onto my coin I chose to go with [Exodus](https://www.exodus.com/), Ari reccomended it when I brought up this topic with a group chat and it was a wallet I had already heard of before.
+
+I decided to go with XMR, BTC, LTC and ETH wallets, not that I have funding in them all but they seem like solid contenders to just *have*.
+
+```yaml
+XMR: 48NZQ5rYpiNEjNtsWKbyniVY3FpJ9kLVA815cxfSMPF5gvjrBiHH9x5JLr3aBYhvKvENCdhrYgzQ9LhBnR5NoinWDCGBzNm
+BTC: bc1qeqz2fswpn4hjjy373gyvjgkq63hv7mknwd6cau
+LTC: LW4tGWNzYQ21eJ8G2LZaLqroYU67nSNwnY
+ETH/USDC/USDT: 0xDd947270bCE2bBB3a3E3eCc4eA5095c14aa9ec58
+```
+
+## Finale
+
+Here are the addresses & keys I have settled on, signed with the mentioned GPG key.
+
+[here](/static/messages/keys_and_addrs.txt) is the origional signed file if you want it~
+
+```md
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Email: hello@aria.coffee
+Website: aria.coffee
+Main Git: https://git.aria.coffee/BuyMyAria
+Backup Git(GitHub): https://github.com/BuyMyMojo
+Alt Git: https://git.witchcraft.systems/Aria
+
+bsky: https://bsky.app/profile/did:plc:bzrn33tcfgjxnsanvg6py3xn
+bsky alt (pds.witchcraft.systems): https://bsky.app/profile/did:plc:valun42etpm73we7bgyh64ge
+
+PGP fingerprint: 7EBD 3E0C 7D3D 5C7D 5CA8  A03F 4977 6EAC 872B 884B
+PGP Key: https://aria.coffee/static/keys/49776EAC872B884B_public.asc
+PGP Keyservers: https://keyserver.ubuntu.com & https://keys.openpgp.org
+SSH key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBi5QCHIPTT6Uvq2SLxWUKxcN7RgdtrgJxVs2muVUbqe
+
+Crypto Wallets:
+XMR: 48NZQ5rYpiNEjNtsWKbyniVY3FpJ9kLVA815cxfSMPF5gvjrBiHH9x5JLr3aBYhvKvENCdhrYgzQ9LhBnR5NoinWDCGBzNm
+BTC: bc1qeqz2fswpn4hjjy373gyvjgkq63hv7mknwd6cau
+LTC: LW4tGWNzYQ21eJ8G2LZaLqroYU67nSNwnY
+ETH/USDC/USDT: 0xDd947270bCE2bBB3a3E3eCc4eA5095c14aa9ec58
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQTnt7jSDIdTwHf5sXEZq3qkYrirOwUCaCIXOQAKCRAZq3qkYrir
+OyZvAQDPFtFOpgFumJBjL5AuwBv2ezxBu//WmQcwMIY6NDReewEAq6i+Q0GOC8FI
+1lqnI9uxr10FIGSemJ4FbUmve6GrWgE=
+=J+Ky
+-----END PGP SIGNATURE-----
+```
