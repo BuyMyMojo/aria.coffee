@@ -1,0 +1,19 @@
+---
+import Partition from "../components/Partition.astro";
+
+import BaseLayoutJxl from "../layouts/BaseLayoutJxl.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = "Testing animated AVIF support!";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    <Partition>
+        <h1 class="text-4xl font-bold">{pageTitle}</h1>
+    </Partition>
+    <Partition>
+        <main>
+            <h3 class="text-2xl text-center font-bold">TEST:</h3>
+            <img src="/static/img/tests/mage-demon-queen-fastflix-0bb2.avif" />
+        </main>
+    </Partition>
+</BaseLayout>
