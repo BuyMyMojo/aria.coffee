@@ -10,7 +10,7 @@ jobs:
     # runs-on: WebDeployment
     runs-on: 9950x
     container:
-      image: code.forgejo.org/oci/debian:latest
+      image: docker.io/node:23-bookworm
     steps:
       - name: Install pnpm
         uses: https://github.com/pnpm/action-setup@v4
