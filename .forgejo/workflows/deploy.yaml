@@ -12,14 +12,6 @@ jobs:
     container:
       image: code.forgejo.org/oci/debian:latest
     steps:
-      - name: Install SSH key
-        uses: https://github.com/shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_KEY }}
-          name: aria-coffee-deploy # optional
-          known_hosts: ${{ secrets.KNOWN_HOSTS }}
-          if_key_exists: fail
-
       - name: Install pnpm
         uses: https://github.com/pnpm/action-setup@v4
         with:
@@ -30,6 +22,15 @@ jobs:
         with:
           node-version: 23.11.0
           cache: 'pnpm'
+
+      - name: Install SSH key
+        uses: https://github.com/shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          name: aria-coffee-deploy # optional
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
+          if_key_exists: fail
+
 
       - name: Checkout
         uses: actions/checkout@v4
