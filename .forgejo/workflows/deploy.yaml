@@ -12,9 +12,6 @@ jobs:
     container:
       image: code.forgejo.org/oci/debian:latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Install SSH key
         uses: https://github.com/shimataro/ssh-key-action@v2
         with:
@@ -33,6 +30,9 @@ jobs:
         with:
           node-version: 23.11.0
           cache: 'pnpm'
+
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - run: pnpm install
 
