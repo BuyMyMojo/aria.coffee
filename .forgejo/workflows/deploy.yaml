@@ -12,6 +12,9 @@ jobs:
     container:
       image: docker.io/node:23-bookworm
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Install pnpm
         uses: https://github.com/pnpm/action-setup@v4
         with:
@@ -30,10 +33,6 @@ jobs:
           name: aria-coffee-deploy # optional
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
           if_key_exists: fail
-
-
-      - name: Checkout
-        uses: actions/checkout@v4
 
       - run: pnpm install
 
