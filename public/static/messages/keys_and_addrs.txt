@@ -3,7 +3,7 @@ Hash: SHA512
 
 Email: hello@aria.coffee
 Website: aria.coffee
-Main Git: https://git.aria.coffee/BuyMyAria
+Main Git: https://git.aria.coffee/aria
 Backup Git(GitHub): https://github.com/BuyMyMojo
 Alt Git: https://git.witchcraft.systems/Aria
 

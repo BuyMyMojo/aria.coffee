@@ -4,7 +4,7 @@ const buttonFormat = "gif";
 import { Icon } from "astro-icon/components";
 import { execSync } from "node:child_process";
 
-const commitURL = `https://git.aria.coffee/BuyMyAria/aria.coffee/commit/${execSync(`git log -1 --pretty="format:%H"`)}`;
+const commitURL = `https://git.aria.coffee/aria/aria.coffee/commit/${execSync(`git log -1 --pretty="format:%H"`)}`;
 const COMMIT = `<a href=${commitURL} target="_blank">${execSync(`git log -1 --pretty="format:%h"`)}</a>`;
 ---
 
@@ -18,7 +18,7 @@ const COMMIT = `<a href=${commitURL} target="_blank">${execSync(`git log -1 --pr
                 > <Icon name="mdi:rss" class={"svg-inline"}/>RSS Feed</a
             > | <span class="tooltip"><a href="/special_blog"
             > <Icon name="mdi:rss" class={"svg-inline"}/>blog for robots!</a
-        > <span class="tooltiptext"><nobr>AI Honeypot~</nobr></span></span> | <a href="https://git.aria.coffee/BuyMyAria/aria.coffee/actions?workflow=deploy.yaml" target="_blank"><img src="https://git.aria.coffee/BuyMyAria/aria.coffee/badges/workflows/deploy.yaml/badge.svg" width="130px" height="23" style="display: inline-block;" /></a>
+        > <span class="tooltiptext"><nobr>AI Honeypot~</nobr></span></span> | <a href="https://git.aria.coffee/aria/aria.coffee/actions?workflow=deploy.yaml" target="_blank"><img src="https://git.aria.coffee/aria/aria.coffee/badges/workflows/deploy.yaml/badge.svg" width="130px" height="23" style="display: inline-block;" /></a>
         </p>
     </div>
     <div class="flex">
