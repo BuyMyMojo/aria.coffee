@@ -8,10 +8,9 @@ on:
 jobs:
   deploy:
     # runs-on: WebDeployment
-    runs-on: 9950x
+    runs-on: 3900x
     container:
-      image: docker.io/node:23-bookworm
-      options: --cap-add=NET_ADMIN --device=/dev/net/tun
+      image: docker.io/node:24-bookworm
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,7 +23,7 @@ jobs:
       - name: Install Node.js
         uses: https://github.com/actions/setup-node@v4
         with:
-          node-version: 23.11.0
+          node-version: 24
           cache: 'pnpm'
 
       - name: Install SSH key
@@ -40,38 +39,25 @@ jobs:
       - name: Build website
         run: pnpm run build-action
 
-      - name: Install Sudo
-        run: |
-          apt-get update && apt-get -y install sudo
-      
-      # - name: Sudo group
-      #   run: |
-      #     groupmod -a -U $USER sudo
-
-      - name: Setup Tailscale
-        uses: https://github.com/tailscale/github-action@v3
-        with:
-          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-
       - name: Create folder if not exists
         continue-on-error: true
         run: |
-          ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST_TAILSCALE }} "mkdir -p /var/www/Aria/"
+          ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "mkdir -p /var/www/Aria/"
 
       - name: Clear old backup
         continue-on-error: true
         run: |
-          ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST_TAILSCALE }} "[ -d "/var/www/Aria/dist-old" ] && rm -r /var/www/Aria/dist-old"
+          ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "[ -d "/var/www/Aria/dist-old" ] && rm -r /var/www/Aria/dist-old"
 
       - name: Backup current install
         continue-on-error: true
         run: |
-          ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST_TAILSCALE }} "[ -d "/var/www/Aria/dist" ] && mv /var/www/Aria/dist /var/www/Aria/dist-old"
+          ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "[ -d "/var/www/Aria/dist" ] && mv /var/www/Aria/dist /var/www/Aria/dist-old"
 
       - name: Copy over new build-action
         run: |
-          scp -i ~/.ssh/aria-coffee-deploy -rv ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST_TAILSCALE }}:/var/www/Aria
+          scp -i ~/.ssh/aria-coffee-deploy -rv ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
       
       - name: Set permissions on the deployed files
         run: |
-          ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST_TAILSCALE }} "chmod -R 755 /var/www/Aria/dist"
+          ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "chmod -R 755 /var/www/Aria/dist"
