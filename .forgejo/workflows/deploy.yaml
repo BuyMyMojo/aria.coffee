@@ -11,6 +11,7 @@ jobs:
     runs-on: 9950x
     container:
       image: docker.io/node:23-bookworm
+      options: --cap-add=NET_ADMIN --device=/dev/net/tun
     steps:
       - name: Checkout
         uses: actions/checkout@v4
