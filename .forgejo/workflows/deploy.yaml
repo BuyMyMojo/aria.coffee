@@ -31,9 +31,10 @@ jobs:
         with:
           node-version: 23.11.0
           cache: 'pnpm'
+      - run: pnpm install
 
-      - name: Install dependencies
-        run: pnpm install
+      # - name: Install dependencies
+      #   run: pnpm install
 
       - name: Build website
         run: pnpm run build-action
