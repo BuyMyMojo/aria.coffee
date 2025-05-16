@@ -38,6 +38,14 @@ jobs:
       - name: Build website
         run: pnpm run build-action
 
+      - name: Install Sudo
+        run: |
+          apt-get update && apt-get -y install sudo
+      
+      - name: Sudo group
+        run: |
+          groupmod -a -U $USER sudo
+
       - name: Setup Tailscale
         uses: https://github.com/tailscale/github-action@v3
         with:
