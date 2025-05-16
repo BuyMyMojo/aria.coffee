@@ -51,7 +51,6 @@ jobs:
         uses: https://github.com/tailscale/github-action@v3
         with:
           authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
-          use-cache: 'true'
 
       - name: Create folder if not exists
         continue-on-error: true
