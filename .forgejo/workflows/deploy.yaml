@@ -56,7 +56,7 @@ jobs:
 
       - name: Copy over new build-action
         run: |
-          scp -i ~/.ssh/aria-coffee-deploy -rv ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
+          scp -i ~/.ssh/aria-coffee-deploy -rC ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
       
       - name: Set permissions on the deployed files
         run: |
