@@ -63,14 +63,9 @@ jobs:
           apt-get update -y && apt-get install rsync -y
 
       - name: rsync deployments
-        uses: https://github.com/Burnett01/rsync-deployments@7.0.2
-        with:
-          switches: -avzrP
-          path: dist/
-          remote_path: /var/www/Aria/dist
-          remote_host: ${{ vars.SERVER_HOST }}
-          remote_user: ${{ vars.SERVER_USER }}
-          remote_key: ${{ secrets.SSH_KEY }}
+        run: |
+          rsync -avzrP ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
+          
 
       - name: Set permissions on the deployed files
         run: |
