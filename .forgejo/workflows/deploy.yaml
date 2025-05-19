@@ -54,17 +54,17 @@ jobs:
         run: |
           ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "[ -d "/var/www/Aria/dist" ] && mv /var/www/Aria/dist /var/www/Aria/dist-old"
 
-      # - name: Copy over new build-action
+      - name: Copy over new build-action
+        run: |
+          scp -i ~/.ssh/aria-coffee-deploy -rC ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
+
+      # - name: install rsync
       #   run: |
-      #     scp -i ~/.ssh/aria-coffee-deploy -rC ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
+      #     apt-get update -y && apt-get install rsync -y
 
-      - name: install rsync
-        run: |
-          apt-get update -y && apt-get install rsync -y
-
-      - name: rsync deployments
-        run: |
-          rsync -avzrP -e "ssh -i ~/.ssh/aria-coffee-deploy" ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
+      # - name: rsync deployments
+      #   run: |
+      #     rsync -avzrP -e "ssh -i ~/.ssh/aria-coffee-deploy" ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
           
 
       - name: Set permissions on the deployed files
