@@ -64,7 +64,7 @@ jobs:
 
       - name: rsync deployments
         run: |
-          rsync -avzrP ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
+          rsync -avzrP -e "ssh -i ~/.ssh/aria-coffee-deploy" ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
           
 
       - name: Set permissions on the deployed files
