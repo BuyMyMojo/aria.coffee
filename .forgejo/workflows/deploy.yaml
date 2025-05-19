@@ -54,10 +54,20 @@ jobs:
         run: |
           ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "[ -d "/var/www/Aria/dist" ] && mv /var/www/Aria/dist /var/www/Aria/dist-old"
 
-      - name: Copy over new build-action
-        run: |
-          scp -i ~/.ssh/aria-coffee-deploy -rC ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
-      
+      # - name: Copy over new build-action
+      #   run: |
+      #     scp -i ~/.ssh/aria-coffee-deploy -rC ./dist ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }}:/var/www/Aria
+
+      - name: rsync deployments
+        uses: https://github.com/Burnett01/rsync-deployments@7.0.2
+        with:
+          switches: -avzrP
+          path: dist/
+          remote_path: /var/www/Aria/dist
+          remote_host: ${{ vars.SERVER_HOST }}
+          remote_user: ${{ vars.SERVER_USER }}
+          remote_key: ${{ secrets.SSH_KEY }}
+
       - name: Set permissions on the deployed files
         run: |
           ssh -i ~/.ssh/aria-coffee-deploy ${{ vars.SERVER_USER }}@${{ vars.SERVER_HOST }} "chmod -R 755 /var/www/Aria/dist"
