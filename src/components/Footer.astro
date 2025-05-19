@@ -12,13 +12,32 @@ const COMMIT = `<a href=${commitURL} target="_blank">${execSync(`git log -1 --pr
 <footer class="flexcol">
     <div class="flexrow">
         <p class="text-center">
-            | <a href="https://github.com/BuyMyMojo/aria.coffee" target="_blank"
-                > <Icon name="mdi:source-branch" class={"svg-inline"}/>Source</a
-            > - Commit:<Fragment set:html={COMMIT} /> | <a href="https://aria.coffee/rss.xml" target="_blank"
-                > <Icon name="mdi:rss" class={"svg-inline"}/>RSS Feed</a
-            > | <span class="tooltip"><a href="/special_blog"
-            > <Icon name="mdi:rss" class={"svg-inline"}/>blog for robots!</a
-        > <span class="tooltiptext"><nobr>AI Honeypot~</nobr></span></span> | <a href="https://git.aria.coffee/aria/aria.coffee/actions?workflow=deploy.yaml" target="_blank"><img src="https://git.aria.coffee/aria/aria.coffee/badges/workflows/deploy.yaml/badge.svg" width="130px" height="23" style="display: inline-block;" /></a>
+            | <a
+                href="https://github.com/BuyMyMojo/aria.coffee"
+                target="_blank"
+            >
+                <Icon name="mdi:source-branch" class={"svg-inline"} />Source</a
+            > - Commit:<Fragment set:html={COMMIT} /> | <a
+                href="https://aria.coffee/rss.xml"
+                target="_blank"
+            >
+                <Icon name="mdi:rss" class={"svg-inline"} />RSS Feed</a
+            > | <span class="tooltip"
+                ><a href="/special_blog">
+                    <Icon name="mdi:rss" class={"svg-inline"} />blog for robots!</a
+                >
+                <span class="tooltiptext"><nobr>AI Honeypot~</nobr></span></span
+            > | <a
+                href="https://git.aria.coffee/aria/aria.coffee/actions?workflow=deploy.yaml"
+                target="_blank"
+                ><img
+                    src="https://git.aria.coffee/aria/aria.coffee/badges/workflows/deploy.yaml/badge.svg"
+                    width="130px"
+                    height="23"
+                    style="display: inline-block;"
+                /></a
+            > |
+            <br />
         </p>
     </div>
     <div class="flex">
@@ -30,6 +49,10 @@ const COMMIT = `<a href=${commitURL} target="_blank">${execSync(`git log -1 --pr
         />
         <script is:inline defer src="https://transring.neocities.org/ring.js"
         ></script>
+        <div id="wcb" class="carbonbadge wcb-d"></div>
+        <script
+            src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js"
+            defer></script>
     </div>
 </footer>
 <style is:global>
