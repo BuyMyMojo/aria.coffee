@@ -4,7 +4,12 @@ import { getCollection } from "astro:content";
 import BlogEntry from "../components/BlogEntry.astro";
 import Partition from "../components/Partition.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-const allPosts = await getCollection("blog");
+import { boolean } from "astro:schema";
+const allPosts = await getCollection("blog", ({ data }) => {
+
+    return data.draft !== true;
+
+  });
 
 const pageTitle = "Aria's blog";
 const description = "Aria's blog of assorted content";
@@ -25,5 +30,6 @@ const description = "Aria's blog of assorted content";
             ))
         }
     </ul>
+
 </Partition>
 </BaseLayout>
