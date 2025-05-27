@@ -1,0 +1,16 @@
+---
+import { Image, Picture } from "astro:assets";
+
+const { name, image, target } = Astro.props;
+---
+<a href={`${target}`} target="_blank"><Picture src={image} width={88} height={31} alt={`${name}`} class="flex" quality="high" decoding="async" loading="lazy" formats={['webp']} /></a>
+<style>
+    img {
+        image-rendering: pixelated;
+        min-width: 88px;
+        width: 176px;
+        min-height: 31px;
+        height: 62px;
+        padding: 4px;
+    }
+</style>
