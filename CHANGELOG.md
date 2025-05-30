@@ -1,3 +1,13 @@
+## v0.2.0 (2025-05-30)
+
+### Feat
+
+- **Aria-Board**: add 4 new imaged to the mood board of motoko kusanagi
+
+### Refactor
+
+- **old/**: remove old unused version of website
+
 ## v0.1.0 (2025-05-27)
 
 ### Feat
