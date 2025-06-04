@@ -10,7 +10,8 @@ jobs:
     # runs-on: WebDeployment
     runs-on: 3900x
     container:
-      image: docker.io/node:24-bookworm
+      image: ghcr.io/ublue-os/bazzite-dx:sha256-3695dd0423195fbc4140abe923dc9451e00b4c4f46b4f3b571e9285948a4d257.sig
+      # image: docker.io/node:24-bookworm
     steps:
       - name: Checkout
         uses: actions/checkout@v4
