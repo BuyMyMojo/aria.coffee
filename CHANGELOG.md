@@ -1,3 +1,13 @@
+## v1.0.1 (2025-06-09)
+
+### Feat
+
+- **package.json**: bump deps
+
+### Fix
+
+- **index**: fix minisign download link
+
 ## v1.0.0 (2025-06-09)
 
 ### Feat
