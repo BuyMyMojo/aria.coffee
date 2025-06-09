@@ -1,3 +1,21 @@
+## v1.0.0 (2025-06-09)
+
+### Feat
+
+- **index**: update main page with minisign key and new message
+- add new public key for minisign, add signatures to other keys and add a new message reflecting this
+- prepare alternative custom button for Amemoia for performance reasons in the future
+
+### Fix
+
+- **index**: fix avif animated iamges not being usable
+
+### Perf
+
+- **index**: move Amemoia's button to fallback smaller button
+- **FriendLink***: add AVIF format to buttons
+- **index**: change Amemoia's button to FriendLinkLow
+
 ## v0.2.0 (2025-05-30)
 
 ### Feat
