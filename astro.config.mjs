@@ -34,7 +34,7 @@ export default defineConfig({
           "hayden.moe",
           "onz.ee",
           "notnite.com",
-          "erisdump.neocities.org",
+          // "erisdump.neocities.org",
           "espi.me",
           "alula.me",
           "sapphic.moe",
