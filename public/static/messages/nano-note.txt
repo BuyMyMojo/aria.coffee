@@ -1,0 +1,15 @@
+I have added a new wallet address to my website!
+
+Nano: nano_1o6wsddxjbkhrt38m6n87b8szg4jdkkuty7r3t553sqgj5ue7kbqqrioaap9
+
+I am leaving this note here and signing it as proof of identity.
+
+all my current wallets are as follows:
+
+ XMR: 48NZQ5rYpiNEjNtsWKbyniVY3FpJ9kLVA815cxfSMPF5gvjrBiHH9x5JLr3aBYhvKvENCdhrYgzQ9LhBnR5NoinWDCGBzNm
+ BTC: bc1qeqz2fswpn4hjjy373gyvjgkq63hv7mknwd6cau
+ LTC: LW4tGWNzYQ21eJ8G2LZaLqroYU67nSNwnY
+ ETH: 0xDd947270bCE2bBB3a3E3eCc4eA5095c14aa9ec58
+ USDC(ETH): 0xDd947270bCE2bBB3a3E3eCc4eA5095c14aa9ec58
+ USDT(ETH): 0xDd947270bCE2bBB3a3E3eCc4eA5095c14aa9ec58
+ NANO: nano_1o6wsddxjbkhrt38m6n87b8szg4jdkkuty7r3t553sqgj5ue7kbqqrioaap9
