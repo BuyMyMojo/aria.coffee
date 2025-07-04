@@ -1,3 +1,16 @@
+## v1.1.0 (2025-07-04)
+
+### Feat
+
+- add matomo & bump versions
+- **pay-me**: add nano address
+- **blog**: make draft bool optional
+
+### Fix
+
+- **astro config**: remove eris from image download
+- **index**: remove "SSH" from minisign key text
+
 ## v1.0.1 (2025-06-09)
 
 ### Feat
