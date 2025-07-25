@@ -18,7 +18,7 @@ export default defineConfig({
   site: "https://aria.coffee",
   integrations: [
     preact(),
-    tailwind(),
+    // tailwind(),
     icon(),
     mdx(),
     matomo({

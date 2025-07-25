@@ -3,14 +3,16 @@ import { Image, Picture } from "astro:assets";
 
 const { name, image, target } = Astro.props;
 ---
-<a href={`${target}`} target="_blank"><Picture src={image} width={88} height={31} alt={`${name}`} class="flex" quality="max" decoding="async" loading="lazy" formats={['avif', 'webp']} /></a>
+<a href={`${target}`} target="_blank"><Picture src={image} width=176 height=62 alt={`${name}`} sizes={"0.5x 1x 2x 4x"} class="flex" quality="max" decoding="async" loading="lazy" formats={['avif', 'webp']} /></a>
 <style>
     img {
         image-rendering: pixelated;
-        min-width: 88px;
+        min-width: 176px;
         width: 176px;
-        min-height: 31px;
+        max-width: 176px;
+        min-height: 62px;
         height: 62px;
-        padding: 4px;
+        max-height: 62px;
+        scale: 1;
     }
 </style>
