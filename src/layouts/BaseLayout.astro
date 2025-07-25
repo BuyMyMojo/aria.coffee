@@ -33,7 +33,7 @@ const { pageTitle, description = "Aria's little corner of the web" } = Astro.pro
             href={new URL("rss.xml", Astro.site)}
         />
     </head>
-    <body>
+    <body class="max-w-5xl w-full mx-auto">
       <NavHeader />
       <slot />
       <Footer />
