@@ -3,7 +3,7 @@
 
 const { name, image, target } = Astro.props;
 ---
-<a href={`${target}`} target="_blank"><img src={image} width=176 height=62 alt={`${name}`} class="flex" decoding="async" loading="lazy" /></a>
+<a href={`${target}`} target="_blank"><img loading="lazy" decoding="async" src={image} width=176 height=62 alt={`${name}`} class="flex" /></a>
 <style>
     img {
         image-rendering: pixelated;
