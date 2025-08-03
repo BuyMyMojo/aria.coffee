@@ -56,7 +56,7 @@ body {
 	color: var(--fourth-colour);
 }
 
-@media screen and (max-width: 899px) {
+@media screen and (max-width: 1024px) {
 	body {
 		width: 95%;
 		padding-top: 0.5em;

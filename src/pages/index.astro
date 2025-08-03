@@ -1,14 +1,10 @@
 ---
 import Partition from "../components/Partition.astro";
 
-import Greeting from "../components/Greeting";
 import Social from "../components/Social.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import FriendLink from "../components/FriendLinkHigh.astro";
-import FriendLinkMid from "../components/FriendLinkMid.astro";
-import FriendLinkLow from "../components/FriendLinkLow.astro";
-import FriendLinkLowAnimated from "../components/FriendLinkLowAnimated.astro";
-import FriendLinkMidAnimated from "../components/FriendLinkMidAnimated.astro";
+import FriendLink from "../components/FriendLink.astro";
+
 const pageTitle = "Aria";
 
 const currentDate = new Date();
@@ -60,13 +56,13 @@ const age = seconds / 31556952;
     <Partition>
         <h1 class="text-2xl">These are cool people!!</h1>
         <br />
-        <div class="flex outline-dotted p-5 flex-wrap justify-center max-w-4xl">
+        <div class="flex outline-dotted flex-wrap justify-center box-content">
             <FriendLink
                 name="Alyxia"
                 image="https://alyxia.dev/static/img/88x31/self.png"
                 target="https://alyxia.dev"
             />
-            <div class="outline-dashed flex outline-3 mx-1">
+            <div class="outline-dashed flex outline-3 m-0.5">
                 <FriendLink
                     name="Prefetcher"
                     image="https://nanoshinono.me/prefetcher.gif"
@@ -78,7 +74,7 @@ const age = seconds / 31556952;
                     target="https://ata.moe"
                 />
             </div>
-            <FriendLinkLow
+            <FriendLink
                 name="Amemoia"
                 image="/static/img/88x31/BuhMoe.png"
                 target="https://buh.moe/"
@@ -98,16 +94,16 @@ const age = seconds / 31556952;
                 image="https://notnite.com/buttons/notnite.png"
                 target="https://notnite.com/"
             />
-            <FriendLinkLowAnimated
+            <FriendLink
                 name="0x5066"
                 image="https://erisdump.neocities.org/buttons/88x31_2.gif"
                 target="https://erisdump.neocities.org"
             />
-            <!-- <FriendLink
+            <FriendLink
                 name="Espi"
-                image="https://espi.me/img/webring/espi.png"
+                image="https://espi.me/buttons/espi.png"
                 target="https://www.espi.me"
-            /> -->
+            />
             <FriendLink
                 name="Alula"
                 image="https://alula.me/webring/alula.png"
@@ -128,13 +124,13 @@ const age = seconds / 31556952;
                 image="https://meow-d.github.io/assets/images/buttons/meow_d.webp"
                 target="https://meow-d.github.io/"
             />
-            <div class="outline-dashed flex outline-3 mx-1">
-                <FriendLinkMidAnimated
+            <div class="outline-dashed flex outline-3 m-0.5">
+                <FriendLink
                     name="~thermia"
                     image="https://girlthi.ng/~thermia/img/88x31/thermia.gif"
                     target="https://girlthi.ng/~thermia/"
                 />
-                <FriendLinkMidAnimated
+                <FriendLink
                     name="girlthi.ng"
                     image="https://girlthi.ng/~thermia/img/88x31/girlthing.gif"
                     target="https://girlthi.ng/"
@@ -142,7 +138,7 @@ const age = seconds / 31556952;
             </div>
             <FriendLink
                 name="LeNooby 09"
-                image="https://lenooby09.tech/88x31/88x31.png"
+                image="https://lenooby09.tech/88x31.png"
                 target="https://lenooby09.tech"
             />
             <FriendLink
@@ -150,7 +146,7 @@ const age = seconds / 31556952;
                 image="https://ackwell.au/assets/88x31/ackwell-coil.png"
                 target="https://ackwell.au"
             />
-            <div class="outline-dashed flex outline-3 mx-1">
+            <div class="outline-dashed flex outline-3 m-0.5">
                 <FriendLink
                 name="witchcraft.systems"
                 image="https://ari.express/assets/PWsbutton.png"
@@ -162,6 +158,21 @@ const age = seconds / 31556952;
                 target="https://ari.express/"
             />
             </div>
+            <FriendLink
+                name="ariaOS"
+                image="https://aria.catwife.dev/ariaos-button.png"
+                target="https://aria.catwife.dev/"
+            />
+            <FriendLink
+                name="Xan Surnamehere"
+                image="https://xan.lol/img/btn/meta.gif"
+                target="https://xan.lol/"
+            />
+            <FriendLink
+                name="hotsocket"
+                image="https://hotsocket.fyi/files/media/img/button.png"
+                target="https://hotsocket.fyi/"
+            />
         </div>
         <br />
         <a href="/other buttons">Extra 88x31 buttons!</a>
@@ -207,6 +218,4 @@ const age = seconds / 31556952;
             ageElem!.outerHTML = `<span class="tooltip">${Math.floor(age)}<span class="tooltiptext"><nobr>${age.toFixed(8)} years to be exact!</nobr></span></span>`;
         }, 1000);
     </script>
-
-    <style is:inline></style>
 </BaseLayout>
