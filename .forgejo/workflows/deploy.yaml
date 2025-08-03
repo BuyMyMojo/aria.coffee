@@ -8,8 +8,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ["3900x", "proxmox-S1"]
-    # runs-on: 3900x
+    runs-on: proxmox-S1
     container:
       image: docker.io/node:24-bookworm
     steps:
