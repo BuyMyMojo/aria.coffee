@@ -3,7 +3,7 @@ import { Image, Picture } from "astro:assets";
 
 const { name, image, target } = Astro.props;
 ---
-<a href={`${target}`} target="_blank"><Image loading="lazy" decoding="async" src={image} width=176 height=62 alt={`${name}`} class="flex" /></a>
+<a href={`${target}`} target="_blank"><Image loading="lazy" decoding="async" src={image} width=88 height=31 alt={`${name}`} class="flex" /></a>
 <style>
     img {
         image-rendering: pixelated;
