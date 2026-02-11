@@ -5,6 +5,8 @@
         ".vscode",
         "NavHeader.astro",
         "friends.astro",
-        "aria.css"
+        "aria.css",
+        "index.astro",
+        "forgejo/deploy"
     ]
 }
