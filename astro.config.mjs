@@ -15,26 +15,26 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   output: process.env.DOCKER_BUILD ? "server" : "static",
-  site: "https://aria.coffee",
+  site: process.env.SITE || "https://aria.coffee",
   integrations: [
     preact(),
     // tailwind(),
     icon(),
     mdx(),
-    matomo({
-      enabled: import.meta.env.PROD, // Only load in production
-      host: "https://analytics.aria.coffee/",
-      // setCookieDomain: "*.ara.coffee",
-      // trackerUrl: "js/", // defaults to matomo.php
-      // srcUrl: "js/", // defaults to matomo.js
-      siteId: 1,
-      heartBeatTimer: 5,
-      // disableCookies: true,
-      debug: false,
-      // viewTransition: {
-        // contentElement: "main"
-      // }
-    }),
+    // matomo({
+    //   enabled: import.meta.env.PROD, // Only load in production
+    //   host: "https://analytics.aria.coffee/",
+    //   // setCookieDomain: "*.ara.coffee",
+    //   // trackerUrl: "js/", // defaults to matomo.php
+    //   // srcUrl: "js/", // defaults to matomo.js
+    //   siteId: 1,
+    //   heartBeatTimer: 5,
+    //   // disableCookies: true,
+    //   debug: false,
+    //   // viewTransition: {
+    //     // contentElement: "main"
+    //   // }
+    // }),
 
   ],
 
