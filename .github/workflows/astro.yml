@@ -59,6 +59,43 @@ jobs:
         with:
           path: ${{ env.BUILD_PATH }}/dist
 
+  build-on-wisp:
+    name: Build and deploy to wisp.place
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: pnpm
+          cache-dependency-path: ${{ env.BUILD_PATH }}/pnpm-lock.yaml
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Install dependencies
+        run: pnpm install .
+        working-directory: ${{ env.BUILD_PATH }}
+      - name: Build with Astro
+        run: |
+          pnpm build-action
+        working-directory: ${{ env.BUILD_PATH }}
+      - run: |
+          curl https://sites.wisp.place/nekomimi.pet/wisp-cli-binaries/wisp-cli-x86_64-linux -o wisp-cli
+      - run: |
+          chmod +x wisp-cli
+      - name: deploy to wisp
+        run: |
+          ./wisp-cli deploy "${{ vars.WISP_HANDLE }}" \
+            --path ${{ env.BUILD_PATH }}/dist \
+            --site "${{ vars.SITE_NAME }}" \
+            --password "${{ secrets.WISP_APP_PASSWORD }}" \
+            --spaa
+
   deploy:
     environment:
       name: github-pages
