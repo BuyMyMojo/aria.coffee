@@ -56,6 +56,13 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+
+  experimental: {
+    queuedRendering: {
+      enabled: true,
+    },
+    rustCompiler: true,
+  },
 });
 
 // Bellow is for when dedicated server is wanted?
