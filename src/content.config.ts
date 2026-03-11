@@ -1,5 +1,6 @@
 // Import utilities from `astro:content`
-import { defineCollection, z } from "astro:content";
+import { defineCollection} from "astro:content";
+import { z } from 'astro/zod';
 
 // Import the glob loader
 import { glob } from "astro/loaders";
@@ -18,7 +19,8 @@ const blog = defineCollection({
 });
 
 const albums = defineCollection({
-	type: "data",
+	// type: "data",
+	loader: glob({ pattern: '**/*.yaml', base: "./src/content/albums" }),
 	schema: ({ image }) =>
 	  z.object({
 		title: z.string(),
