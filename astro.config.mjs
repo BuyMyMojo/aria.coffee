@@ -1,11 +1,9 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import matomo from 'astro-matomo';
 import { remarkModifiedTime } from "./remark-modified-time.mjs";
 
 import preact from "@astrojs/preact";
 import tailwindcss from "@tailwindcss/vite";
-import tailwind from "@tailwindcss/vite";
 // import node from "@astrojs/node";
 
 import icon from "astro-icon";
